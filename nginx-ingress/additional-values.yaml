@@ -1,3 +1,8 @@
+replicaCount: 3
+
+defaultBackend:
+  replicaCount: 3
+
 service:
   type: LoadBalancer
   annotations:
