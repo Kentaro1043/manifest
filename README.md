@@ -30,7 +30,7 @@ mv keys.txt
 ### 1. 暗号化
 
 ```sh
-sops -e --in-place some-secret.yaml > some-secret.enc.yaml
+sops -e some-secret.yaml > some-secret.enc.yaml
 ```
 
 ### 2. 設定
