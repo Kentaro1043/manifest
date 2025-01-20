@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: misskey-web
+  namespace: misskey
+  labels:
+    app: misskey-web
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: misskey-web
+  template:
+    metadata:
+      labels:
+        app: misskey-web
+    spec:
+      containers:
+      - name: misskey-web
+        image: misskey/misskey
+        volumeMounts:
+          - name: misskey-default-config-file
+            mountPath: /misskey/.config
+            readOnly: true
+        ports:
+         - containerPort: 3000
+      volumes:
+        - name: misskey-default-config-file
+          secret:
+            secretName: misskey-default-config
