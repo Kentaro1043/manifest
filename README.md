@@ -25,7 +25,7 @@ mv keys.txt"$XDG_CONFIG_HOME/sops/age"
 mv keys.txt 
 ```
 
-## 使い方
+## secretの入れ方
 
 ### 1. 暗号化
 
@@ -49,3 +49,22 @@ metadata:
 files:
   - ./secrets/some-secret.enc.yaml
 ```
+
+## Bootstrap
+
+### 1. sops用secret作成
+
+```sh
+kubectl create secret generic sops-age --namespace=argocd --from-file="$HOME/Library/Application Support/sops/age/keys.txt"
+```
+
+### 2. `argocd`、`nginx-ingress`をデプロイ
+
+```sh
+kubectl create ns argocd
+kustomize build . --enable-alpha-plugins --enable-exec --enable-helm | kubectl apply -n argocd -f -
+```
+
+### 3. ArgoCDのUIからリポジトリなど設定
+
+### 4. `argocd`、`nginx-ingress`を含む各アプリをSync
