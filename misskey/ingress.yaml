@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: misskey-web
+  namespace: misskey
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: msky.kentaro1043.com
+      http:
+        paths:
+          - pathType: Prefix
+            backend:
+              service:
+                name: misskey-web-service
+                port:
+                  number: 80
+            path: /
