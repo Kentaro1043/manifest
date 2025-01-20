@@ -1,0 +1,45 @@
+global:
+  domain: cd.kentaro1043.com
+
+server:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    tls: true
+
+### ksops configuration
+### https://github.com/viaduct-ai/kustomize-sops#argo-cd-helm-chart-with-custom-tooling
+# Enable Kustomize Alpha Plugins via Argo CD ConfigMap, required for ksops
+configs:
+  cm:
+    kustomize.buildOptions: "--enable-alpha-plugins --enable-exec --enable-helm"
+
+repoServer:
+  # Use init containers to configure custom tooling
+  # https://argoproj.github.io/argo-cd/operator-manual/custom_tools/
+  volumes:
+    - name: custom-tools
+      emptyDir: {}
+
+  initContainers:
+    - name: install-ksops
+      image: viaductoss/ksops
+      command: ["/bin/sh", "-c"]
+      args:
+        - echo "Installing KSOPS...";
+          mv ksops /custom-tools/;
+          mv kustomize /custom-tools/;
+          echo "Done.";
+      volumeMounts:
+        - mountPath: /custom-tools
+          name: custom-tools
+  volumeMounts:
+    - mountPath: /usr/local/bin/kustomize
+      name: custom-tools
+      subPath: kustomize
+    - mountPath: /usr/local/bin/ksops
+      name: custom-tools
+      subPath: ksops

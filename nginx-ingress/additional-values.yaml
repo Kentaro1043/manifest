@@ -1,5 +1,8 @@
 replicaCount: 3
 
+extraArgs:
+  enable-ssl-passthrough: ""
+
 defaultBackend:
   replicaCount: 3
 
