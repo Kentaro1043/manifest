@@ -3,7 +3,12 @@
   "extends": [
     "config:recommended"
   ],
-  "docker": {
-    "enabled": true
-  }
+  "packageRules": [
+    {
+      "matchCategories": [
+        "docker"
+      ],
+      "enabled": true
+    }
+  ]
 }
