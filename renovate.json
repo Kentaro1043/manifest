@@ -9,7 +9,8 @@
       "matchDatasources": ["docker"],
       "matchPackageNames": ["misskey/misskey"],
       "versioning": "regex:^(?<major>\\d{4})\\.(?<minor>\\d{1,2})\\.(?<patch>\\d+)$",
-      "automerge": false
+      "automerge": false,
+      "enabled": true
     }
   ]
 }
