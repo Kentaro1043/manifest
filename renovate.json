@@ -5,8 +5,7 @@
   ],
   "packageRules": [
     {
-      "matchFileNames": ["misskey/deployment.yaml"],
-      "matchDatasources": ["docker"],
+      "matchDatasources": ["kubernetes"],
       "matchPackageNames": ["misskey/misskey"],
       "versioning": "regex:^(?<major>\\d{4})\\.(?<minor>\\d{1,2})\\.(?<patch>\\d+)$",
       "automerge": false,
