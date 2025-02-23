@@ -5,6 +5,7 @@
   ],
   "packageRules": [
     {
+      "matchFileNames": ["misskey/deployment.yaml"],
       "matchDatasources": ["docker"],
       "matchPackageNames": ["misskey/misskey"],
       "versioning": "regix:^(?<major>\\d{4})(\\.(?<minor>\\d+))(\\.(?<patch>\\d+))$",
