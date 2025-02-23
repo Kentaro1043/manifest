@@ -4,6 +4,7 @@ helmCharts:
     version: 7.8.3
     releaseName: argocd
     namespace: argocd
+    includeCRDs: true
     additionalValuesFiles:
       - ./additional-values.yaml
 
