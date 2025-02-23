@@ -5,10 +5,10 @@
   ],
   "packageRules": [
     {
-      "matchCategories": [
-        "docker"
-      ],
-      "enabled": true
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["misskey/misskey"],
+      "versioning": "regix:^(?<major>\\d\\4*)(\\.(?<minor>\\d+))(\\.(?<patch>\\d+))$",
+      "automerge": false
     }
   ]
 }
