@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: misskey-web
-        image: misskey/misskey:2025.2.0
+        image: misskey/misskey:2025.2.1
         volumeMounts:
           - name: misskey-default-config-file
             mountPath: /misskey/.config
