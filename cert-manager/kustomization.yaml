@@ -6,3 +6,7 @@ helmCharts:
     namespace: cert-manager
     additionalValuesFiles:
       - ./additional-values.yaml
+
+resources:
+  - ./http-01-issuer-staging.yaml
+  - ./http-01-issuer.yaml
