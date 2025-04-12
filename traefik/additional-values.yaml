@@ -5,6 +5,8 @@ ingressRoute:
   dashboard:
     enabled: true
     matchRules: Host('traefik.kentaro1043.com')
+    entryPoints:
+      - websecure
 
 service:
   annotations:
