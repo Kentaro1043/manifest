@@ -6,8 +6,10 @@ ingressRoute:
     enabled: true
     matchRules: Host('traefik.kentaro1043.com')
     entryPoints:
-      - web
       - websecure
+    tls:
+      secretName: traefik-tls
+      certResolver: http-01-issuer-staging
 
 service:
   annotations:
