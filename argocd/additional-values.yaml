@@ -3,12 +3,12 @@ global:
 
 server:
   certificate:
-    enabled: true
+    enabled: false
     issuer:
       name: http-01-issuer
       kind: ClusterIssuer
   ingress:
-    enabled: true
+    enabled: false
     ingressClassName: traefik
     annotations:
       traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
