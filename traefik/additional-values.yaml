@@ -6,6 +6,7 @@ ingressRoute:
     enabled: true
     matchRules: Host('traefik.kentaro1043.com')
     entryPoints:
+      - web
       - websecure
 
 service:
