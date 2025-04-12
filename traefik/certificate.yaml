@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: traefik-tls
+spec:
+  secretName: traefik-tls  
+  dnsNames:
+    - "traefik.kentaro1043.com"
+  issuerRef:
+    name: http-01-issuer-staging
+    kind: ClusterIssuer

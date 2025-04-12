@@ -7,3 +7,6 @@ helmCharts:
     includeCRDs: true
     additionalValuesFiles:
       - ./additional-values.yaml
+
+resources:
+  - ./certificate.yaml
