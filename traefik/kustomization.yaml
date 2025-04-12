@@ -1,0 +1,9 @@
+helmCharts:
+  - name: traefik
+    repo: oci://ghcr.io/traefik/helm/traefik
+    version: v35.0.0
+    releaseName: traefik
+    namespace: traefik
+    includeCRDs: true
+    additionalValuesFiles:
+      - ./additional-values.yaml
