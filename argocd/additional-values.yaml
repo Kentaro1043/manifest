@@ -18,6 +18,8 @@ server:
 ### https://github.com/viaduct-ai/kustomize-sops#argo-cd-helm-chart-with-custom-tooling
 # Enable Kustomize Alpha Plugins via Argo CD ConfigMap, required for ksops
 configs:
+  params:
+    server.insecure: true
   cm:
     kustomize.buildOptions: "--enable-alpha-plugins --enable-exec --enable-helm"
 
