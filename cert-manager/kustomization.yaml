@@ -10,3 +10,7 @@ helmCharts:
 resources:
   - ./http-01-issuer-staging.yaml
   - ./http-01-issuer.yaml
+  - ./dns-01-issuer.yaml
+
+generators:
+  - ksops.yaml
