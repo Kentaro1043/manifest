@@ -7,6 +7,3 @@ helmCharts:
     includeCRDs: true
     additionalValuesFiles:
       - ./additional-values.yaml
-
-generators:
-  - ksops.yaml
