@@ -2,13 +2,18 @@ global:
   domain: cd.kentaro1043.com
 
 server:
+  certificate:
+    enabled: true
+    issuer:
+      name: http-01-issuer
+      kind: ClusterIssuer
   ingress:
-    enabled: false
-#    ingressClassName: nginx
-#    annotations:
-#      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-#      nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-#    tls: true
+    enabled: true
+    ingressClassName: traefik
+    annotations:
+      traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+      traefik.ingress.kubernetes.io/router.tls: "true"
+    tls: true
 
 ### ksops configuration
 ### https://github.com/viaduct-ai/kustomize-sops#argo-cd-helm-chart-with-custom-tooling
