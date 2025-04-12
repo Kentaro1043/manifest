@@ -1,8 +1,0 @@
-helmCharts:
-  - name: nginx-ingress-controller
-    repo: oci://registry-1.docker.io/bitnamicharts
-    releaseName: nginx-ingress
-    version: 11.6.8
-    namespace: nginx-ingress
-    additionalValuesFiles:
-      - ./additional-values.yaml
