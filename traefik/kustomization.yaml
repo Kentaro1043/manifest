@@ -1,6 +1,6 @@
 helmCharts:
   - name: traefik
-    repo: oci://ghcr.io/traefik/helm/traefik
+    repo: https://traefik.github.io/charts
     version: 35.0.0
     releaseName: traefik
     namespace: traefik
