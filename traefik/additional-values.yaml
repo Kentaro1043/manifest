@@ -4,6 +4,7 @@ deployment:
 ingressRoute:
   dashboard:
     enabled: true
+    matchRules: Host('traefik.kentaro1043.com')
 
 service:
   annotations:
