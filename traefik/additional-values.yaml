@@ -4,7 +4,7 @@ deployment:
 ingressRoute:
   dashboard:
     enabled: true
-    matchRule: Host('traefik.kentaro1043.com')
+    matchRule: Host(`traefik.kentaro1043.com`)
     entryPoints:
       - websecure
     tls:
