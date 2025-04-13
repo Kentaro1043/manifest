@@ -1,0 +1,15 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: postgres-operator-ui
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`psql.kentaro1043.com`)
+      services:
+        - name: postgres-operator-ui
+          port: 80
+  tls:
+    secretName: postgres-operator-ui-tls
