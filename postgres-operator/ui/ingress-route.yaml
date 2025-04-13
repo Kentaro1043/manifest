@@ -11,5 +11,7 @@ spec:
       services:
         - name: postgres-operator-ui
           port: 80
+      middlewares:
+        - name: postgres-operator-ui-basic-auth
   tls:
     secretName: postgres-operator-ui-tls
