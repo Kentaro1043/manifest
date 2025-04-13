@@ -6,3 +6,6 @@ helmCharts:
     namespace: postgres-operator
     additionalValuesFiles:
       - ./additional-values.yaml
+
+resources:
+  - ./certificate.yaml
