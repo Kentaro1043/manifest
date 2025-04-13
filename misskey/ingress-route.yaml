@@ -1,0 +1,16 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: misskey-web
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`msky.kentaro1043.com`)
+      services:
+        - name: misskey-web-service
+          port: 80
+
+  tls:
+    secretName: misskey-tls

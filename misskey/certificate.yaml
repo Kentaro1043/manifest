@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: misskey-tls
+spec:
+  secretName: misskey-tls
+  dnsNames:
+    - "msky.kentaro1043.com"
+  issuerRef:
+#    name: http-01-issuer-staging
+    name: http-01-issuer
+    kind: ClusterIssuer
