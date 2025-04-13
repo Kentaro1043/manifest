@@ -1,0 +1,9 @@
+helmCharts:
+  - name: postgres-operator
+    repo: https://opensource.zalando.com/postgres-operator/charts/postgres-operator
+    version: 1.14.0
+    releaseName: postgres-operator
+    namespace: postgres-operator
+    includeCRDs: true
+    additionalValuesFiles:
+      - ./additional-values.yaml
