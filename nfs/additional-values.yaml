@@ -1,6 +1,6 @@
 storageClass:
   create: true
-  name: nfs
+  name: nfs-csi
   annotations:
     storageclass.kubernetes.io/is-default-class: "true"
   parameters:
