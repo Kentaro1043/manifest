@@ -7,6 +7,6 @@ spec:
   dnsNames:
     - "psql.kentaro1043.com"
   issuerRef:
-#    name: http-01-issuer-staging
-    name: http-01-issuer
+    name: http-01-issuer-staging
+#    name: http-01-issuer
     kind: ClusterIssuer
