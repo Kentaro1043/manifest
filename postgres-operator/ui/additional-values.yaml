@@ -1,0 +1,17 @@
+replicaCount: 3
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+  ingressClassName: traefik
+  hosts:
+    - host: psql.kentaro1043.com
+      paths:
+        - /
+  tls:
+    - secretName: postgres-operator-ui-tls
+      hosts:
+        - psql.kentaro1043.com
