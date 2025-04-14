@@ -22,7 +22,7 @@ spec:
           command: ["/bin/sh", "-c", "
             mkdir -p /font &&
             touch /font/font.ttf &&
-            wget -O /font/font/ttf https://github.com/coz-m/MPLUS_FONTS/raw/refs/heads/master/fonts/ttf/Mplus1-Regular.ttf"]
+            wget -O /font/font.ttf https://github.com/coz-m/MPLUS_FONTS/raw/refs/heads/master/fonts/ttf/Mplus1-Regular.ttf"]
           volumes:
             - name: font-volume
               mountPath: /font
