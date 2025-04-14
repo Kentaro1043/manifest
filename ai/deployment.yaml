@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai
+  labels:
+    app: ai
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ai 
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: ai
+    spec:
+      containers:
+        - image: ghcr.io/kentaro1043/ai-arm64:master@sha256:4ecd595040f4e1b560828118f8680beb574c70550e12327cdf923ef7c42554a1
+          name: ai
+          volumeMounts:
+            - mountPath: /ai/config.json
+              name: config-json
+              readOnly: true
+              subPath: config.json
+            - mountPath: /ai/font.ttf
+              name: font-ttf
+              readOnly: true
+            - mountPath: /ai/data
+              name: data-volume
+      restartPolicy: Always
+      volumes:
+        - configMap:
+            items:
+              - key: config.json
+                path: config.json
+            name: ai-config-json
+          name: config-json
+        - configMap:
+            items:
+              - key: font.ttf
+                path: font.ttf
+            name: ai-font-ttf
+          name: font-ttf
+        - name: data-volume
+          persistentVolumeClaim:
+            claimName: ai-data-volume
