@@ -16,6 +16,13 @@ spec:
       labels:
         app: ai
     spec:
+      initContainers:
+        - name: init-font-files
+          image: busybox:1.37.0
+          command: ["wget", "https://github.com/coz-m/MPLUS_FONTS/raw/refs/heads/master/fonts/ttf/Mplus1-Regular.ttf", "-o", "/font/font.ttf"]
+          volumes:
+            - name: font-volume
+              mountPath: /font
       containers:
         - image: ghcr.io/kentaro1043/ai-arm64:master@sha256:4ecd595040f4e1b560828118f8680beb574c70550e12327cdf923ef7c42554a1
           name: ai
@@ -25,8 +32,9 @@ spec:
               readOnly: true
               subPath: config.json
             - mountPath: /ai/font.ttf
-              name: font-ttf
+              name: font-volume
               readOnly: true
+              subPath: font.ttf
             - mountPath: /ai/data
               name: data-volume
       restartPolicy: Always
@@ -37,12 +45,8 @@ spec:
                 path: config.json
             name: ai-config-json
           name: config-json
-        - configMap:
-            items:
-              - key: font.ttf
-                path: font.ttf
-            name: ai-font-ttf
-          name: font-ttf
+        - name: font-volume
+          emptyDir: {}
         - name: data-volume
           persistentVolumeClaim:
             claimName: ai-data-volume

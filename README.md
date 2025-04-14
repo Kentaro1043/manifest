@@ -68,7 +68,3 @@ kustomize build . --enable-alpha-plugins --enable-exec --enable-helm | kubectl a
 ### 3. ArgoCDのUIからリポジトリなど設定
 
 ### 4. `argocd`、`nginx-ingress`を含む各アプリをSync
-
-## ライセンス
-
-`ai/config/font.ttf`には、[Mplus 1](https://github.com/coz-m/MPLUS_FONTS)フォントを[SIL Open Font License 1.1](https://github.com/coz-m/MPLUS_FONTS/blob/master/OFL.txt)ライセンスの下で使用しています。

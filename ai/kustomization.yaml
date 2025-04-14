@@ -2,10 +2,5 @@ resources:
   - deployment.yaml
   - data-volume.yaml
 
-configMapGenerator:
-  - name: ai-font-ttf
-    files:
-      - ./config/font.ttf
-
 generators:
   - ksops.yaml
