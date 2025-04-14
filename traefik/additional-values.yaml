@@ -10,6 +10,12 @@ ingressRoute:
     tls:
       secretName: traefik-tls
 
+providers:
+  kubernetesCRD:
+    enabled: true
+    allowCrossNamespace: true
+    allowExternalNameServices: true
+
 service:
   annotations:
     oci.oraclecloud.com/load-balancer-type: "nlb"
