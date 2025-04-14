@@ -39,12 +39,9 @@ spec:
               name: data-volume
       restartPolicy: Always
       volumes:
-        - configMap:
-            items:
-              - key: config.json
-                path: config.json
-            name: ai-config-json
-          name: config-json
+        - name: config-json
+          secret:
+            secretName: ai-config-json
         - name: font-volume
           emptyDir: {}
         - name: data-volume
