@@ -1,0 +1,16 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: vaultwarden
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`vw.kentaro1043.com`)
+      services:
+        - name: vaultwarden
+          port: 80
+
+  tls:
+    secretName: vaultwarden-tls
