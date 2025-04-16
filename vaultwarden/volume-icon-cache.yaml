@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: vaultwarden-attachments
+  name: vaultwarden-icon-cache
 spec:
   resources:
     requests:
-      storage: 1Gi
+      storage: 100Mi
   volumeMode: Filesystem
   storageClassName: nfs-csi
   accessModes:

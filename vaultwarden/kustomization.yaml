@@ -1,0 +1,10 @@
+resources:
+  - deployment.yaml
+  - service.yaml
+  - ingress-route.yaml
+  - certificate.yaml
+  - volume-attachments.yaml
+  - volume-icon-cache.yaml
+
+generators:
+  - ksops.yaml

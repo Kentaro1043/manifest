@@ -16,3 +16,68 @@ spec:
         image: vaultwarden/server:1.33.2
         ports:
         - containerPort: 80
+        env:
+          - name: ATTACHMENTS_FOLDER
+            value: /attachments
+          - name: ICON_CACHE_FOLDER
+            value: /icon-cache
+
+          - name: DOMAIN
+            value: https://vw.kentaro1043.com
+          - name: SIGNUPS_ALLOWED
+            value: "true"
+          - name: INVITATIONS_ALLOWED
+            value: "false"
+          - name: PUSH_ENABLED
+            value: "true"
+          - name: SHOW_PASSWORD_HINT
+            value: "false"
+          - name: SMTP_HOST
+            value: smtp.gmail.com
+          - name: SMTP_PORT
+            value: "587"
+          - name: SMTP_SECURITY
+            value: starttls
+        envFrom:
+          - name: PUSH_INSTALLATION_ID
+            valueFrom:
+              secretKeyRef:
+                name: vaultwarden-push-credentials
+                key: PUSH_INSTALLATION_ID
+          - name: PUSH_INSTALLATION_KEY
+            valueFrom:
+              secretKeyRef:
+                name: vaultwarden-push-credentials
+                key: PUSH_INSTALLATION_KEY
+          - name: SMTP_FROM
+            valueFrom:
+              secretKeyRef:
+                name: vaultwarden-smtp
+                key: SMTP_FROM
+          - name: SMTP_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: vaultwarden-smtp
+                key: SMTP_USERNAME
+          - name: SMTP_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: vaultwarden-smtp
+                key: SMTP_PASSWORD
+          - name: DATABASE_URL
+            valueFrom:
+              secretKeyRef:
+                name: vaultwarden-db-url
+                key: DATABASE_URL
+        volumeMounts:
+          - name: vaultwarden-attachments
+            mountPath: /attachments
+          - name: vaultwarden-icon-cache
+            mountPath: /icon-cache
+      volumes:
+        - name: vaultwarden-attachments
+          persistentVolumeClaim:
+            claimName: vaultwarden-attachments
+        - name: vaultwarden-icon-cache
+          persistentVolumeClaim:
+            claimName: vaultwarden-icon-cache
