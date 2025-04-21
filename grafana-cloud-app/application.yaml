@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: grafana-cloud-app
+  name: grafana-cloud
 spec:
   project: default
   source:
@@ -9,13 +9,13 @@ spec:
     repoURL: https://grafana.github.io/helm-charts
     targetRevision: 2.0.25
     helm:
-      releaseName: grafana-cloud-app
+      releaseName: grafana-cloud
       valueFiles:
         - additional-values.yaml
         - secrets://secrets.enc.yaml
   destination:
     server: https://kubernetes.default.svc
-    namespace: grafana-cloud-app
+    namespace: grafana-cloud
   syncPolicy:
     automated:
       prune: true
