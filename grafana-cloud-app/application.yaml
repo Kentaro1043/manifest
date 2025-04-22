@@ -15,7 +15,7 @@ spec:
       releaseName: grafana-cloud
       valueFiles:
         - additional-values.yaml
-        - secrets://secrets.enc.yaml
+        - secrets+age-import://sops-age/keys.txt?secrets.enc.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: grafana-cloud
