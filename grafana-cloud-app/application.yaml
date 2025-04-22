@@ -15,7 +15,7 @@ spec:
       releaseName: grafana-cloud
       valueFiles:
         - https://github.com/Kentaro1043/manifest/raw/refs/heads/main/grafana-cloud-app/additional-values.yaml
-        - secrets+age-import://sops-age/keys.txt?https://github.com/Kentaro1043/manifest/raw/refs/heads/main/grafana-cloud-app/secrets.enc.yaml
+        - secrets://https://github.com/Kentaro1043/manifest/raw/refs/heads/main/grafana-cloud-app/secrets.enc.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: grafana-cloud
