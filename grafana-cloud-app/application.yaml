@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: grafana-cloud
+  name: grafana-k8s-monitoring
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -12,13 +12,13 @@ spec:
     repoURL: https://grafana.github.io/helm-charts
     targetRevision: 2.0.25
     helm:
-      releaseName: grafana-cloud
+      releaseName: grafana-k8s-monitoring
       valueFiles:
         - secrets://https://github.com/Kentaro1043/manifest/raw/refs/heads/main/grafana-cloud-app/secrets.enc.yaml
         - https://github.com/Kentaro1043/manifest/raw/refs/heads/main/grafana-cloud-app/additional-values.yaml
   destination:
     server: https://kubernetes.default.svc
-    namespace: grafana-cloud
+    namespace: grafana-k8s-monitoring
   syncPolicy:
     automated:
       prune: true
