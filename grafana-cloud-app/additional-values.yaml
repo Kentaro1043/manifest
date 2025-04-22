@@ -1,5 +1,6 @@
 cluster:
   name: oke-cluster
+
 clusterMetrics:
   enabled: true
   opencost:
@@ -12,6 +13,7 @@ clusterMetrics:
         existingSecretName: grafana-cloud-metrics-grafana-k8s-monitoring
   kepler:
     enabled: true
+
 annotationAutodiscovery:
   enabled: true
 prometheusOperatorObjects:
@@ -42,6 +44,7 @@ autoInstrumentation:
   enabled: true
 profiling:
   enabled: true
+
 alloy-metrics:
   enabled: true
   alloy:
@@ -67,6 +70,7 @@ alloy-metrics:
     enabled: true
     auth:
       type: basic
+
 alloy-singleton:
   enabled: true
   alloy:
@@ -92,6 +96,7 @@ alloy-singleton:
     enabled: true
     auth:
       type: basic
+
 alloy-logs:
   enabled: true
   alloy:
@@ -121,6 +126,7 @@ alloy-logs:
     enabled: true
     auth:
       type: basic
+
 alloy-receiver:
   enabled: true
   alloy:
@@ -163,6 +169,7 @@ alloy-receiver:
     enabled: true
     auth:
       type: basic
+
 alloy-profiles:
   enabled: true
   alloy:
