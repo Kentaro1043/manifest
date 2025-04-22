@@ -93,7 +93,7 @@ alloy-singleton:
     auth:
       type: basic
 alloy-logs:
-  enabled: true
+  enabled: false
   alloy:
     extraEnv:
       - name: GCLOUD_RW_API_KEY
