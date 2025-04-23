@@ -5,6 +5,8 @@ clusterMetrics:
   enabled: true
 clusterEvents:
   enabled: true
+nodeLogs:
+  enabled: true
 podLogs:
   enabled: true
 
