@@ -1,0 +1,2 @@
+resources:
+  - grafana-k8s-monitoring/application.yaml
