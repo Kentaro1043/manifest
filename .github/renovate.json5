@@ -28,6 +28,13 @@
                 "digest",
                 "pinDigest"
             ]
+        },
+        {
+            "description": "Disable auto merge for misskey",
+            "automerge": false,
+            "matchPackageNames": [
+                "misskey/misskey"
+            ]
         }
     ],
     "kubernetes": {
