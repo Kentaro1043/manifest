@@ -15,6 +15,7 @@
         ":pinDevDependencies"
     ],
     "platformAutomerge": true,
+    "ignoreTests": true,
     "automergeStrategy": "squash",
     "automergeType": "branch",
     "semanticCommits": "enabled",
