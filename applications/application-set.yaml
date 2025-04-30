@@ -10,7 +10,7 @@ spec:
     - "missingkey=error"
   generators:
     - git:
-        repoURL: git@github.com:Kentaro1043/manifest.git
+        repoURL: https://github.com/Kentaro1043/manifest
         revision: main
         directories:
           - path: "*"
@@ -26,7 +26,7 @@ spec:
         server: https://kubernetes.default.svc
       project: default
       source:
-        repoURL: git@github.com:Kentaro1043/manifest.git
+        repoURL: https://github.com/Kentaro1043/manifest
         path: "{{.path.path}}"
         targetRevision: main
       syncPolicy:
