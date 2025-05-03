@@ -3,7 +3,8 @@ resources:
   - ./service.yaml
   - ./volume-storage.yaml
   - ./ingress-route.yaml
-  - ./certificate.yaml
+  - ./certificate-ui.yaml
+  - ./certificate-api.yaml
 
 generators:
   - ksops.yaml
