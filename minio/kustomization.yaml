@@ -1,0 +1,10 @@
+resources:
+  - ./deployment.yaml
+  - ./service.yaml
+  - ./volume-storage.yaml
+  - ./ingress-route.yaml
+  - ./certificate.yaml
+
+generators:
+  - ksops.yaml
+  
