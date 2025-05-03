@@ -7,10 +7,15 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`s3.kentaro1043.com`)
+      match: Host(`api.s3.kentaro1043.com`)
       services:
         - name: minio
           port: 9000
+    - kind: Rule
+      match: Host(`s3.kentaro1043.com`)
+      services:
+        - name: minio
+          port: 9001
 
   tls:
     secretName: minio-tls
