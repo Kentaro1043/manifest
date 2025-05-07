@@ -9,6 +9,12 @@ ingressRoute:
       - websecure
     tls:
       secretName: traefik-tls
+  healthcheck:
+    enabled: true
+    entryPoints:
+      - websecure
+    tls:
+      secretName: traefik-tls
 
 providers:
   kubernetesCRD:
