@@ -1,45 +1,44 @@
 {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": [
-        // expanded config:best-practices
-        ":dependencyDashboard",
-        ":semanticPrefixFixDepsChoreOthers",
-        ":ignoreModulesAndTests",
-        "group:monorepos",
-        "group:recommended",
-        "replacements:all",
-        "workarounds:all",
-        "docker:pinDigests",
-        "helpers:pinGitHubActionDigests",
-        ":configMigration",
-        ":pinDevDependencies"
+    $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+    extends: [
+        ':dependencyDashboard',
+        ':semanticPrefixFixDepsChoreOthers',
+        ':ignoreModulesAndTests',
+        'group:monorepos',
+        'group:recommended',
+        'replacements:all',
+        'workarounds:all',
+        'docker:pinDigests',
+        'helpers:pinGitHubActionDigests',
+        ':configMigration',
+        ':pinDevDependencies',
     ],
-    "platformAutomerge": true,
-    "ignoreTests": true,
-    "automergeStrategy": "squash",
-    "automergeType": "branch",
-    "semanticCommits": "enabled",
-    "packageRules": [
+    platformAutomerge: true,
+    ignoreTests: true,
+    automergeStrategy: 'squash',
+    automergeType: 'branch',
+    semanticCommits: 'enabled',
+    packageRules: [
         {
-            "description": "Auto merge up to patch",
-            "automerge": true,
-            "matchUpdateTypes": [
-                "patch",
-                "digest",
-                "pinDigest"
-            ]
+            description: 'Auto merge up to patch',
+            automerge: true,
+            matchUpdateTypes: [
+                'patch',
+                'digest',
+                'pinDigest',
+            ],
         },
         {
-            "description": "Disable auto merge for misskey",
-            "automerge": false,
-            "matchPackageNames": [
-                "misskey/misskey"
-            ]
-        }
+            description: 'Disable auto merge for misskey',
+            automerge: false,
+            matchPackageNames: [
+                'misskey/misskey',
+            ],
+        },
     ],
-    "kubernetes": {
-        "fileMatch": [
-            ".+\\.ya?ml$"
-        ]
-    }
+    kubernetes: {
+        managerFilePatterns: [
+            '/.+\\.ya?ml$/',
+        ],
+    },
 }
