@@ -1,0 +1,9 @@
+service:
+  ui:
+    type: ClusterIP
+
+longhornUI:
+  replicas: 3
+
+ingress:
+  enabled: false
