@@ -47,16 +47,9 @@ nextcloud:
     replica:
       persistence: true
 
-  # https://github.com/nextcloud/helm/issues/10
   configs:
     custom.config.php: |
       <?php
-      $CONFIG = array (
-        // https://github.com/nextcloud/helm/issues/10
-        'overwriteprotocol' => 'https',
-        'filelocking.enabled' => 'true',
-        'enable_previews' => true,
-
         // Source IP
         'trusted_proxies' => array(
           0 => '127.0.0.1',
@@ -72,6 +65,12 @@ affinity:
           matchLabels:
             app: cert-manager
         topologyKey: "kubernetes.io/hostname"
+
+podSecurityContext:
+  runAsUser: 33
+  runAsGroup: 33
+  runAsNonRoot: true
+  readOnlyRootFilesystem: false
 
 ingress:
   enabled: false
