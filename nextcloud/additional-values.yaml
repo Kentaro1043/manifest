@@ -1,0 +1,74 @@
+replicaCount: 3
+
+nextcloud:
+  host: "nc.kentaro1043.com"
+
+  trustedDomains:
+    - "nc.kentaro1043.com"
+
+  existingSecret:
+    enabled: true
+    secretName: "nextcloud-secrets"
+    usernameKey: "username"
+    passwordKey: "password"
+    smtpUsernameKey: "smtp-username"
+    smtpPasswordKey: "smtp-password"
+    smtpHostKey: "smtp-host"
+
+  mail:
+    enabled: true
+    fromAddress: "service@kentaro1043.com"
+    domain: "gmail.com"
+    smtp:
+      secure: "ssl"
+      port: 465
+
+  objectStore:
+    s3:
+      enabled: true
+      ssl: false
+      port: 59000
+      region: "us-east-1"
+      usePathStyle: true
+      autoCreate: false
+      existingSecret: "nextcloud-s3"
+      secretKeys:
+        host: "host"
+        accessKey: "access-key"
+        secretKey: "secret-key"
+        bucket: "bucket"
+
+affinity:
+  podAntiAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchLabels:
+            app: cert-manager
+        topologyKey: "kubernetes.io/hostname"
+
+ingress:
+  enabled: false
+
+service:
+  annotations:
+    traefik.ingress.kubernetes.io/service.sticky.cookie: "true"
+
+internalDatabase:
+  enabled: false
+
+externalDatabase:
+  enabled: true
+  type: "postgresql"
+  existingSecret:
+    enabled: true
+    secretName: "nextcloud-db"
+    usernameKey: "username"
+    passwordKey: "password"
+    hostKey: "host"
+    databaseKey: "database"
+
+persistence:
+  enabled: true
+  storageClass: "nfs-csi"
+  accessMode: "ReadWriteMany"
+  size: "3Gi"

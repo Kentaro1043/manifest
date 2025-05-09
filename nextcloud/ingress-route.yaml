@@ -1,0 +1,17 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: nextcloud
+  namespace: nextcloud
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`nc.kentaro1043.com`)
+      services:
+        - name: nextcloud-nextcloud
+          port: 80
+
+  tls:
+    secretName: nextcloud-tls
