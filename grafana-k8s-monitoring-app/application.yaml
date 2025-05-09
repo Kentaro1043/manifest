@@ -8,18 +8,15 @@ metadata:
 
 spec:
   project: default
-  sources:
-    - chart: k8s-monitoring
-      repoURL: https://grafana.github.io/helm-charts
-      targetRevision: 2.0.25
-      helm:
-        releaseName: grafana-k8s-monitoring
-        valueFiles:
-          - $manifestRepo/grafana-k8s-monitoring-app/additional-values.yaml
-          - secrets://$manifestRepo/grafana-k8s-monitoring-app/secrets.enc.yaml
-    - repoURL: https://github.com/Kentaro1043/manifest.git
-      targetRevision: main
-      ref: manifestRepo
+  source:
+    chart: k8s-monitoring
+    repoURL: https://grafana.github.io/helm-charts
+    targetRevision: 2.0.25
+    helm:
+      releaseName: grafana-k8s-monitoring
+      valueFiles:
+        - secrets://https://github.com/Kentaro1043/manifest/raw/refs/heads/main/grafana-k8s-monitoring-app/secrets.enc.yaml
+        - https://github.com/Kentaro1043/manifest/raw/refs/heads/main/grafana-k8s-monitoring-app/additional-values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: grafana-k8s-monitoring
