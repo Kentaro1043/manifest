@@ -7,3 +7,7 @@ longhornUI:
 
 ingress:
   enabled: false
+
+# https://github.com/longhorn/longhorn/issues/4853
+preUpgradeChecker:
+  jobEnabled: false
