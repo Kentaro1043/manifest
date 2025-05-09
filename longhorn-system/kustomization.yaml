@@ -1,8 +1,8 @@
-helmCharts:
-  - name: longhorn
-    repo: https://charts.longhorn.io
-    version: 1.8.1
-    releaseName: longhorn
-    namespace: longhorn-system
-    additionalValuesFiles:
-      - ./additional-values.yaml
+#helmCharts:
+#  - name: longhorn
+#    repo: https://charts.longhorn.io
+#    version: 1.8.1
+#    releaseName: longhorn
+#    namespace: longhorn-system
+#    additionalValuesFiles:
+#      - ./additional-values.yaml
