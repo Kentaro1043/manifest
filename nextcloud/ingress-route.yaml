@@ -10,7 +10,7 @@ spec:
     - kind: Rule
       match: Host(`nc.kentaro1043.com`)
       services:
-        - name: nextcloud-nextcloud
+        - name: nextcloud
           port: 80
 
   tls:
