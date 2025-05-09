@@ -13,3 +13,4 @@ spec:
     - name: console
       port: 9001
       targetPort: 59001
+      protocol: TCP
