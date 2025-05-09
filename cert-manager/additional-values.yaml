@@ -4,8 +4,8 @@ crds:
 replicaCount: 3
 affinity:
   podAntiAffinity:
-  requiredDuringSchedulingIgnoredDuringExecution:
-    - labelSelector:
-        matchLabels:
-          app: cert-manager
-      topologyKey: "kubernetes.io/hostname"
+    requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchLabels:
+            app: cert-manager
+        topologyKey: "kubernetes.io/hostname"
