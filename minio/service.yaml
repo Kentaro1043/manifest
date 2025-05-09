@@ -5,12 +5,3 @@ metadata:
 spec:
   type: ExternalName
   externalName: private.oci.kentaro1043.com
-  ports:
-    - name: api
-      port: 9000
-      targetPort: 59000
-      protocol: TCP
-    - name: console
-      port: 9001
-      targetPort: 59001
-      protocol: TCP
