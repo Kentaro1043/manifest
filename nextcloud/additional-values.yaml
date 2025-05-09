@@ -38,6 +38,15 @@ nextcloud:
         secretKey: "secret-key"
         bucket: "bucket"
 
+  redis:
+    enabled: true
+    global:
+      storageClass: "nfs-csi"
+    master:
+      persistence: true
+    replica:
+      persistence: true
+
   # https://github.com/nextcloud/helm/issues/10
   configs:
     custom.config.php: |
