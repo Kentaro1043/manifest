@@ -38,6 +38,16 @@ nextcloud:
         secretKey: "secret-key"
         bucket: "bucket"
 
+  # https://github.com/nextcloud/helm/issues/10
+  configs:
+    custom.config.php: |
+      <?php
+      $CONFIG = array (
+        'overwriteprotocol' => 'https',
+        'filelocking.enabled' => 'true',
+        'enable_previews' => true,
+      );
+
 affinity:
   podAntiAffinity:
     requiredDuringSchedulingIgnoredDuringExecution:
@@ -75,8 +85,8 @@ persistence:
 
 livenessProbe:
   enabled: true
-  initialDelaySeconds: 600
+  initialDelaySeconds: 10
 
 readinessProbe:
   enabled: true
-  initialDelaySeconds: 600
+  initialDelaySeconds: 10
