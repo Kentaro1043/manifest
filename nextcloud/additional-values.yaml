@@ -52,14 +52,12 @@ nextcloud:
     custom.config.php: |
       <?php
       $CONFIG = array (
+        // https://github.com/nextcloud/helm/issues/10
         'overwriteprotocol' => 'https',
         'filelocking.enabled' => 'true',
         'enable_previews' => true,
-      );
 
-    proxy.config.php: |-
-      <?php
-      $CONFIG = array (
+        // Source IP
         'trusted_proxies' => array(
           0 => '127.0.0.1',
           1 => '10.0.0.0/8',
