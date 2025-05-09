@@ -72,3 +72,11 @@ persistence:
   storageClass: "nfs-csi"
   accessMode: "ReadWriteMany"
   size: "3Gi"
+
+livenessProbe:
+  enabled: true
+  initialDelaySeconds: 120
+
+readinessProbe:
+  enabled: true
+  initialDelaySeconds: 120
