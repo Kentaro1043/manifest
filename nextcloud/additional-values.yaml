@@ -47,6 +47,8 @@ nextcloud:
       $CONFIG = array (
         // https overwrite
         'overwriteprotocol' => 'https',
+        'overwrite.cli.url' => 'https://nc.kentaro1043.com',
+        'overwritehost' => 'nc.kentaro1043.com',
 
         // Source IP
         'trusted_proxies' => array(
