@@ -64,6 +64,9 @@ nextcloud:
 
         // phone region
         'default_phone_region'=> 'JP',
+
+        // maintenance window
+        'maintenance_window_start' => 18,
       );
 
 affinity:
