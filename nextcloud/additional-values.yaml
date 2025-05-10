@@ -61,6 +61,9 @@ nextcloud:
           'port' => 56380,
           'timeout' => 0,
         ],
+
+        // phone region
+        'default_phone_region'=> 'JP',
       );
 
 affinity:
