@@ -17,8 +17,8 @@ nextcloud:
 
   mail:
     enabled: true
-    fromAddress: "service@kentaro1043.com"
-    domain: "gmail.com"
+    fromAddress: "service"
+    domain: "kentaro1043.com"
     smtp:
       secure: "ssl"
       port: 465
