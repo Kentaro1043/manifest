@@ -16,6 +16,3 @@ spec:
     customRequestHeaders:
       X-Download-Options: noopen
       X-Robots-Tag: "noindex, nofollow"
-  redirectScheme:
-    scheme: https
-    permanent: true
