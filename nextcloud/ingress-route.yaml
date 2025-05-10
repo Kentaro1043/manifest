@@ -11,6 +11,7 @@ spec:
       match: Host(`nc.kentaro1043.com`)
       middlewares:
         - name: nextcloud
+          namespace: nextcloud
       services:
         - name: nextcloud
           port: 8080
