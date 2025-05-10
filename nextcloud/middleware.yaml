@@ -10,3 +10,5 @@ spec:
     stsSeconds: 15552000
     stsIncludeSubdomains: true
     stsPreload: true
+    contentTypeNosniff: true
+    browserXssFilter: true
