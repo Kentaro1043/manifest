@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nextcloud
+spec:
+  capacity:
+    storage: 5Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: nfs-csi
+  mountOptions:
+    - hard
+    - nfsvers=4.1
+  csi:
+    driver: nfs.csi.k8s.io
+    volumeHandle: private.oci.kentaro1043.com#srv/nfs#nextcloud##
+    readOnly: false
+    volumeAttributes:
+      server: private.oci.kentaro1043.com
+      share: srv/nfs
+      subdir: nextcloud

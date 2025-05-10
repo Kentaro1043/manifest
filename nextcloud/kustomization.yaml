@@ -10,6 +10,8 @@ helmCharts:
 resources:
   - ./ingress-route.yaml
   - ./certificate.yaml
+  - ./pv.yaml
+  - ./pvc.yaml
 
 generators:
   - ./ksops.yaml

@@ -39,23 +39,28 @@ nextcloud:
         bucket: "bucket"
 
   redis:
-    enabled: true
-    global:
-      storageClass: "nfs-csi"
-    master:
-      persistence: true
-    replica:
-      persistence: true
+    enabled: false
 
   configs:
     custom.config.php: |
       <?php
+      $CONFIG = array (
         // Source IP
         'trusted_proxies' => array(
           0 => '127.0.0.1',
           1 => '10.0.0.0/8',
         ),
         'forwarded_for_headers' => array('HTTP_X_FORWARDED_FOR'),
+
+        // redis
+        'memcache.local' => '\\OC\\Memcache\\Redis',
+        'memcache.distributed' => '\\OC\\Memcache\\Redis',
+        'memcache.locking' => '\\OC\\Memcache\\Redis',
+        'redis' => [
+          'host' => 'private.oci.kentaro1043.com',
+          'port' => 56380,
+          'timeout' => 0,
+        ],
       );
 
 affinity:
@@ -95,9 +100,9 @@ externalDatabase:
 
 persistence:
   enabled: true
-  storageClass: "nfs-csi"
+  existingClaim: "nextcloud-pvc"
   accessMode: "ReadWriteMany"
-  size: "3Gi"
+  size: "5Gi"
 
 cronjob:
   enabled: true
