@@ -45,6 +45,9 @@ nextcloud:
     custom.config.php: |
       <?php
       $CONFIG = array (
+        // https overwrite
+        'overwriteprotocol' => 'https',
+
         // Source IP
         'trusted_proxies' => array(
           0 => '127.0.0.1',
