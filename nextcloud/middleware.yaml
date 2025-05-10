@@ -10,10 +10,3 @@ spec:
     stsSeconds: 15552000
     stsIncludeSubdomains: true
     stsPreload: true
-    customFrameOptionsValue: "SAMEORIGIN"
-    contentTypeNosniff: true
-    referrerPolicy: "no-referrer"
-    browserXssFilter: true
-    customRequestHeaders:
-      X-Download-Options: noopen
-      X-Robots-Tag: "noindex, nofollow"
