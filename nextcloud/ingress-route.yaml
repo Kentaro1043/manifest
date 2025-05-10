@@ -9,6 +9,8 @@ spec:
   routes:
     - kind: Rule
       match: Host(`nc.kentaro1043.com`)
+      middlewares:
+        - name: nextcloud
       services:
         - name: nextcloud
           port: 8080
