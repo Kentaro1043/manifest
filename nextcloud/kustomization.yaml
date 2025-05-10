@@ -9,6 +9,7 @@ helmCharts:
 
 resources:
   - ./ingress-route.yaml
+  - ./middleware.yaml
   - ./certificate.yaml
   - ./pv.yaml
   - ./pvc.yaml
