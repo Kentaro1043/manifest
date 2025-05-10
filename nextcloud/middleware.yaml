@@ -5,6 +5,7 @@ metadata:
 spec:
   headers:
     sslRedirect: true
+    sslForceHost: true
     forceSTSHeader: true
     stsSeconds: 15552000
     stsIncludeSubdomains: true
