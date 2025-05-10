@@ -109,8 +109,12 @@ cronjob:
 
 livenessProbe:
   enabled: true
-  initialDelaySeconds: 10
+  initialDelaySeconds: 120
 
 readinessProbe:
   enabled: true
-  initialDelaySeconds: 10
+  initialDelaySeconds: 120
+
+startupProbe:
+  enabled: true
+  initialDelaySeconds: 600
