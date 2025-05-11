@@ -72,6 +72,9 @@ nextcloud:
 
         // maintenance window
         'maintenance_window_start' => 18,
+
+        // OPcache buffer
+        'opcache.memory_consumption' => 128,
       );
 
 affinity:
