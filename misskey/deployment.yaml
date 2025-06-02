@@ -24,7 +24,7 @@ spec:
               topologyKey: "kubernetes.io/hostname"
       containers:
         - name: misskey-web
-          image: misskey/misskey:2025.5.0@sha256:5c90a0cf3ddf010580d30c21b43a345a636313eae96a97f7e56aed0544039480
+          image: misskey/misskey:2025.6.0@sha256:217a1ad34bdf26227ba40ea19e0daecc52194d68cb11ce18e790c1c6e3699d51
           volumeMounts:
             - name: misskey-default-config-file
               mountPath: /misskey/.config
