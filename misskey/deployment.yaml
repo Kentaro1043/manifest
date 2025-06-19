@@ -7,6 +7,11 @@ metadata:
     app: misskey-web
 spec:
   replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
   selector:
     matchLabels:
       app: misskey-web
@@ -17,11 +22,13 @@ spec:
     spec:
       affinity:
         podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            - labelSelector:
-                matchLabels:
-                  app: misskey-web
-              topologyKey: "kubernetes.io/hostname"
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    app: misskey-web
+                topologyKey: "kubernetes.io/hostname"
       containers:
         - name: misskey-web
           image: misskey/misskey:2025.6.3@sha256:d90fcf69c9897256a4767a5e07984c6849e7e147eb3b2e2e1f304c0f0f4e7266
