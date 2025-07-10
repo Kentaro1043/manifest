@@ -7,6 +7,6 @@ metadata:
       exec:
         path: ksops
 files:
-  - ./secrets/secrets.enc.yaml
+  - ./secrets/secrets.yaml
   - ./secrets/database.enc.yaml
   - ./secrets/s3.enc.yaml
