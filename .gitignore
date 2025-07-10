@@ -57,3 +57,6 @@ Temporary Items
 
 # kustomize
 charts
+
+**/secrets/*
+!**/secrets/*.enc.yaml
