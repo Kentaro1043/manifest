@@ -5,5 +5,5 @@ metadata:
 spec:
   containers:
     - name: test-container
-      image: busybox
+      image: busybox@sha256:f85340bf132ae937d2c2a763b8335c9bab35d6e8293f70f606b9c6178d84f42b
       command: ["sleep", "3600"]
