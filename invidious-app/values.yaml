@@ -35,10 +35,12 @@ config:
   registration_enabled: false
   login_enabled: true
   enable_user_notifications: true
+  popular_enabled: false
   cache_annotations: true
   default_user_preferences:
     locale: "ja"
     region: "JP"
+    default_home: Trending
     captions:
       - "Japanese"
       - "English"
