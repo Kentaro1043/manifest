@@ -12,5 +12,11 @@ spec:
       services:
         - name: invidious
           port: 3000
+    - kind: Rule
+      match: Host(`inv-cmp.kentaro1043.com`)
+      services:
+        - name: invidious-companion
+          port: 8282
+
   tls:
     secretName: invidious-tls
