@@ -40,6 +40,10 @@ config:
   default_user_preferences:
     locale: "ja"
     region: "JP"
+    feed_menu:
+      - "Trending"
+      - "Subscriptions"
+      - "Playlists"
     default_home: Trending
     captions:
       - "Japanese"
