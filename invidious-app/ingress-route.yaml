@@ -1,0 +1,15 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: invidious
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`inv.kentaro1043.com`)
+      services:
+        - name: invidious
+          port: 3000
+  tls:
+    secretName: invidious-tls
