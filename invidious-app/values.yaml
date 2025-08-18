@@ -27,6 +27,9 @@ config:
     host: "private.oci.kentaro1043.com"
     port: 65435
     dbname: invidious
+  invidious_companion:
+    - private_url: "http://invidious-companion:8282"
+      public_url: "https://inv-cmp.kentaro1043.com"
   check_tables: true
   external_port: 443
   domain: "inv.kentaro1043.com"

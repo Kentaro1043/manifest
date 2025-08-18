@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: invidious-companion
+  namespace: invidious
+spec:
+  selector:
+    matchLabels:
+      app: invidious-companion
+  serviceName: invidious-companion
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: invidious-companion
+    spec:
+      containers:
+        - name: invidious-companion
+          image: quay.io/invidious/invidious-companion:latest
+          ports:
+            - containerPort: 8282
+          volumeMounts:
+            - name: invidious-companion-cache
+              mountPath: /var/tmp/youtubei.js
+          envFrom:
+            - secretRef:
+                name: invidious-companion-secret
+  volumeClaimTemplates:
+    - metadata:
+        name: invidious-companion-cache
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi
