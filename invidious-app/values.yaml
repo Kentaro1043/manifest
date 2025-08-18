@@ -2,7 +2,7 @@ name: invidious
 
 image:
   repository: quay.io/invidious/invidious
-  tag: 2.20250517.0
+  tag: 2.20250517.0@sha256:9ffa4f1ea5cf01abe3102777102bd7a13153c79f6ff6ac072b6a29dda6909a8b
   pullPolicy: IfNotPresent
 
 replicaCount: 3
@@ -57,5 +57,5 @@ sighelper:
   enabled: true
   image:
     repository: quay.io/invidious/inv-sig-helper
-    tag: latest
+    tag: latest@sha256:39fee87693ef3d71c212d9511f2adb3230783753342321489deab17caa87c42f
     pullPolicy: Always
