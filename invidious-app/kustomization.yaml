@@ -2,6 +2,8 @@ resources:
   - application.yaml
   - certificate.yaml
   - ingress-route.yaml
+  - companion-sts.yaml
+  - companion-service.yaml
 
 generators:
   - ksops.yaml
