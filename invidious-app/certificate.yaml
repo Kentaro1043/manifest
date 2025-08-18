@@ -7,7 +7,6 @@ spec:
   secretName: invidious-tls
   dnsNames:
     - "inv.kentaro1043.com"
-    - "inv-cmp.kentaro1043.com"
   issuerRef:
     name: http-01-issuer
     kind: ClusterIssuer

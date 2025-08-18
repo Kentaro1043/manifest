@@ -13,7 +13,7 @@ spec:
         - name: invidious
           port: 3000
     - kind: Rule
-      match: Host(`inv-cmp.kentaro1043.com`)
+      match: Host(`inv.kentaro1043.com`) && (PathPrefix(`/latest_version`) || PathPrefix(`/api/manifest/dash/id/`) || PathPrefix(`/videoplayback`))
       services:
         - name: invidious-companion
           port: 8282
