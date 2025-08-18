@@ -13,18 +13,9 @@ autoscaling:
 ingress:
   enabled: false
 
-deploymentLabels:
-  app: invidious
+deploymentLabels: {}
 
-affinity:
-  podAntiAffinity:
-    preferredDuringSchedulingIgnoredDuringExecution:
-      - weight: 100
-        podAffinityTerm:
-          labelSelector:
-            matchLabels:
-              app: invidious
-          topologyKey: "kubernetes.io/hostname"
+affinity: {}
 
 postgresql:
   enabled: false
