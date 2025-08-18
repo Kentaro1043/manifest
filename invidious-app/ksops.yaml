@@ -2,9 +2,10 @@ apiVersion: viaduct.ai/v1
 kind: ksops
 metadata:
   name: ksops
+  namespace: invidious
   annotations:
     config.kubernetes.io/function: |
       exec:
         path: ksops
 files:
-  - ./secrets/invidious-companion-secret.enc.yaml
+  - ./secrets/companion-secret.enc.yaml
