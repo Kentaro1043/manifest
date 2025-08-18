@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: invidious
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+
+spec:
+  project: default
+  source:
+    chart: invidious
+    repoURL: https://charts-helm.invidious.io
+    targetRevision: 2.2.0
+    helm:
+      releaseName: invidious
+      valueFiles:
+        - ./values.yaml
+        - secrets://https://github.com/Kentaro1043/manifest/raw/refs/heads/main/invidious-app/secrets/secrets.enc.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: invidious
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

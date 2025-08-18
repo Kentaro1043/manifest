@@ -1,0 +1,61 @@
+name: invidious
+
+image:
+  repository: quay.io/invidious/invidious
+  tag: 2.20250517.0
+  pullPolicy: IfNotPresent
+
+replicaCount: 3
+
+autoscaling:
+  enabled: false
+
+ingress:
+  enabled: false
+
+deploymentLabels:
+  app: invidious
+
+affinity:
+  podAntiAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 100
+        podAffinityTerm:
+          labelSelector:
+            matchLabels:
+              app: invidious
+          topologyKey: "kubernetes.io/hostname"
+
+postgresql:
+  enabled: false
+
+# https://github.com/iv-org/invidious/blob/master/config/config.example.yml
+config:
+  db:
+    user: invidious
+    host: "private.oci.kentaro1043.com"
+    port: 65435
+    dbname: invidious
+  check_tables: true
+  external_port: 443
+  domain: "inv.kentaro1043.com"
+  https_only: true
+  hsts: true
+  registration_enabled: false
+  login_enabled: true
+  enable_user_notifications: true
+  cache_annotations: true
+  default_user_preferences:
+    locale: "ja"
+    region: "JP"
+    captions:
+      - "Japanese"
+      - "English"
+      - "Chinese (Simplified)"
+
+sighelper:
+  enabled: true
+  image:
+    repository: quay.io/invidious/inv-sig-helper
+    tag: latest
+    pullPolicy: Always
