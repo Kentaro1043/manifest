@@ -2,7 +2,7 @@ name: invidious
 
 image:
   repository: quay.io/invidious/invidious
-  tag: 2.20250517.0-arm64
+  tag: 2.20250517.0-arm64@sha256:9dc74a8911b8ec5eaab978b5b3ab6859336e3d416de220473945ae6573bba7a0
   pullPolicy: IfNotPresent
 
 replicaCount: 3
