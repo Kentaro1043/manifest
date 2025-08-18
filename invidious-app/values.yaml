@@ -35,7 +35,7 @@ config:
   domain: "inv.kentaro1043.com"
   https_only: true
   hsts: true
-  registration_enabled: false
+  registration_enabled: true
   login_enabled: true
   enable_user_notifications: true
   popular_enabled: false
