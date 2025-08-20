@@ -9,4 +9,5 @@ spec:
     - match: Host(`traefik.kentaro1043.com`) && PathPrefix(`/metrics`)
       kind: Rule
       services:
-        - name: prometheus@internal
+        - kind: TraefikService
+          name: prometheus@internal
