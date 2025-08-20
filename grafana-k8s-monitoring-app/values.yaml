@@ -128,3 +128,10 @@ nodeLogs:
         transport = "__journal__transport",
       }
     }
+
+integrations:
+  cert-manager:
+    instances:
+      - name: cert-manager
+        labelSelectors:
+          app: cert-manager
