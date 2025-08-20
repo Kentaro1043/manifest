@@ -56,11 +56,24 @@ spec:
             - name: N8N_EXTERNAL_STORAGE_S3_AUTH_AUTO_DETECT
               value: "false"
 
+            - name: N8N_EMAIL_MODE
+              value: smtp
+            - name: N8N_SMTP_HOST
+              value: smtp.gmail.com
+            - name: N8N_SMTP_PORT
+              value: "587"
+            - name: N8N_SMTP_SENDER
+              value: service@kentaro1043.com
+            - name: N8N_SMTP_STARTTLS
+              value: "true"
+
           envFrom:
             - secretRef:
                 name: s3-credentials
             - secretRef:
                 name: db-password
+            - secretRef:
+                name: smtp-credentials
 
           volumeMounts:
             - name: n8n-data
