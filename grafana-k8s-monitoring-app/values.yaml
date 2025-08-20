@@ -3,6 +3,10 @@ cluster:
 
 clusterMetrics:
   enabled: true
+  node-exporter:
+    enabled: true
+    metricsTuning:
+      useIntegrationAllowList: true
 
 annotationAutodiscovery:
   enabled: true
@@ -94,3 +98,27 @@ alloy-logs:
     enabled: true
     auth:
       type: basic
+
+nodeLogs:
+  enabled: true
+  journal:
+    jobLabel: "integrations/node_exporter"
+  labelsToKeep:
+    [
+      "instance",
+      "job",
+      "level",
+      "name",
+      "unit",
+      "service_name",
+      "source",
+      "transport",
+      "boot_id",
+    ]
+  extraLogProcessingStages: |
+    stage.labels {
+      values = {
+        boot_id = "__journal__boot_id",
+        transport = "__journal__transport",
+      }
+    }
