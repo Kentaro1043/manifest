@@ -30,3 +30,8 @@ service:
     oci.oraclecloud.com/load-balancer-type: "nlb"
   spec:
     externalTrafficPolicy: Local
+
+metrics:
+  enabled: true
+  prometheus:
+    manualRouting: true

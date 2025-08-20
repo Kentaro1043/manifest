@@ -10,3 +10,4 @@ helmCharts:
 
 resources:
   - ./certificate.yaml
+  - ./metrics-ingress-route.yaml

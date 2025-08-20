@@ -1,0 +1,12 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-metrics
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`traefik.kentaro1043.com`) && PathPrefix(`/metrics`)
+      kind: Rule
+      services:
+        - name: prometheus@internal
