@@ -33,5 +33,6 @@ service:
 
 metrics:
   enabled: true
+  addInternals: true
   prometheus:
     manualRouting: true
