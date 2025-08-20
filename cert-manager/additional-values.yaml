@@ -9,3 +9,9 @@ affinity:
           matchLabels:
             app: cert-manager
         topologyKey: "kubernetes.io/hostname"
+
+servicemonitor:
+  enabled: true
+
+podmonitor:
+  enabled: true
