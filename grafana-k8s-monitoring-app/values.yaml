@@ -13,15 +13,15 @@ annotationAutodiscovery:
 
 clusterEvents:
   enabled: true
-  namespaces:
-    - ai
-    - misskey
+  #namespaces:
+  #  - ai
+  #  - misskey
 
 podLogs:
   enabled: true
-  namespaces:
-    - ai
-    - misskey
+  #namespaces:
+  #  - ai
+  #  - misskey
 
 alloy-metrics:
   enabled: true
