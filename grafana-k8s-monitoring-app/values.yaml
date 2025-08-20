@@ -3,10 +3,13 @@ cluster:
 
 clusterMetrics:
   enabled: true
+
+annotationAutodiscovery:
+  enabled: true
+
 clusterEvents:
   enabled: true
-nodeLogs:
-  enabled: true
+
 podLogs:
   enabled: true
 
@@ -61,6 +64,7 @@ alloy-singleton:
     enabled: true
     auth:
       type: basic
+
 alloy-logs:
   enabled: true
   alloy:
