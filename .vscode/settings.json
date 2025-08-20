@@ -1,6 +1,3 @@
 {
-  "editor.formatOnSave": true,
-  "yaml.schemas": {
-    "https://raw.githubusercontent.com/grafana/k8s-monitoring-helm/refs/heads/main/charts/k8s-monitoring/values.schema.json": "grafana-k8s-monitoring-app/values.yaml"
-  }
+  "editor.formatOnSave": true
 }
