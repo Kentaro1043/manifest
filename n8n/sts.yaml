@@ -65,11 +65,8 @@ spec:
           volumeMounts:
             - name: n8n-data
               mountPath: /home/node/.n8n
-  volumeClaimTemplates:
-    - metadata:
-        name: n8n-data
-      spec:
-        accessModes: ["ReadWriteOnce"]
-        resources:
-          requests:
-            storage: 1Gi
+
+      volumes:
+        - name: n8n-data
+          persistentVolumeClaim:
+            claimName: n8n-data

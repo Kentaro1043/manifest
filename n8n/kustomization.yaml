@@ -3,6 +3,8 @@ resources:
   - service.yaml
   - ingress-route.yaml
   - certificate.yaml
+  - pv.yaml
+  - pvc.yaml
 
 generators:
   - ksops.yaml
