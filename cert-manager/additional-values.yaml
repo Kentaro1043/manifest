@@ -12,5 +12,5 @@ affinity:
 
 prometheus:
   enabled: true
-  serviceMonitor:
+  podMonitor:
     enabled: true
