@@ -71,6 +71,9 @@ spec:
             - name: N8N_SMTP_STARTTLS
               value: "true"
 
+            - name: NODE_FUNCTION_ALLOW_BUILTIN
+              value: "*"
+
           envFrom:
             - secretRef:
                 name: s3-credentials
