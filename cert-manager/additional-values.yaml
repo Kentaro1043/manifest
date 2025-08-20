@@ -10,8 +10,7 @@ affinity:
             app: cert-manager
         topologyKey: "kubernetes.io/hostname"
 
-servicemonitor:
+prometheus:
   enabled: true
-
-podmonitor:
-  enabled: true
+  serviceMonitor:
+    enabled: true
