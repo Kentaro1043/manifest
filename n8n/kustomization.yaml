@@ -1,0 +1,8 @@
+resources:
+  - sts.yaml
+  - service.yaml
+  - ingress-route.yaml
+  - certificate.yaml
+
+generators:
+  - ksops.yaml

@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: n8n
+spec:
+  selector:
+    matchLabels:
+      app: n8n
+  serviceName: n8n
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: n8n
+    spec:
+      containers:
+        - name: n8n
+          image: docker.n8n.io/n8nio/n8n:1.107.3
+          ports:
+            - containerPort: 5678
+          env:
+            - name: N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS
+              value: "true"
+            - name: N8N_HOST
+              value: n8n.kentaro1043.com
+            - name: N8N_PORT
+              value: "5678"
+            - name: N8N_PROTOCOL
+              value: https
+            - name: N8N_RUNNERS_ENABLED
+              value: "true"
+            - name: NODE_ENV
+              value: production
+            - name: WEBHOOK_URL
+              value: https://n8n.kentaro1043.com/
+            - name: GENERIC_TIMEZONE
+              value: Asia/Tokyo
+            - name: TZ
+              value: Asia/Tokyo
+
+            - name: DB_POSTGRESDB_DATABASE
+              value: n8n
+            - name: DB_POSTGRESDB_HOST
+              value: private.oci.kentaro1043.com
+            - name: DB_POSTGRESDB_PORT
+              value: "65436"
+            - name: DB_POSTGRESDB_USER
+              value: n8n
+
+            - name: N8N_EXTERNAL_STORAGE_S3_HOST
+              value: https://77cda51d81436ca0fab12e116c6d2a4a.r2.cloudflarestorage.com
+            - name: N8N_EXTERNAL_STORAGE_S3_BUCKET_NAME
+              value: n8n
+            - name: N8N_EXTERNAL_STORAGE_S3_BUCKET_REGION
+              value: us-east-1
+            - name: N8N_EXTERNAL_STORAGE_S3_AUTH_AUTO_DETECT
+              value: "false"
+
+          envFrom:
+            - secretRef:
+                name: s3-credentials
+            - secretRef:
+                name: db-password
+
+          volumeMounts:
+            - name: n8n-data
+              mountPath: /home/node/.n8n
+  volumeClaimTemplates:
+    - metadata:
+        name: n8n-data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 1Gi
