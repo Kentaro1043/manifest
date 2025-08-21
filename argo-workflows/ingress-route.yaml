@@ -13,5 +13,5 @@ spec:
       match: Host(`argo.kentaro1043.com`)
       services:
         - kind: Service
-          name: argo-argo-workflows-server
+          name: argo-workflows-server
           port: 2746
