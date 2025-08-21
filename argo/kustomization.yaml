@@ -11,3 +11,7 @@ helmCharts:
 resources:
   - ingress-route.yaml
   - certificate.yaml
+  - middleware.yaml
+
+generators:
+  - ksops.yaml
