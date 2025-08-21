@@ -1,7 +1,7 @@
 crds:
   enabled: true
 
-replicaCount: 3
+replicaCount: 1
 affinity:
   podAntiAffinity:
     requiredDuringSchedulingIgnoredDuringExecution:
