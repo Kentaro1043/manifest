@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: jellyfin-tls
+spec:
+  secretName: jellyfin-tls
+  dnsNames:
+    - "jf.kentaro1043.com"
+  issuerRef:
+    name: http-01-issuer
+    kind: ClusterIssuer
