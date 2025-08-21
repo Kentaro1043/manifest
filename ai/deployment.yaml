@@ -8,7 +8,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ai 
+      app: ai
   strategy:
     type: Recreate
   template:
@@ -19,10 +19,14 @@ spec:
       initContainers:
         - name: init-font-files
           image: busybox:1.37.0@sha256:ab33eacc8251e3807b85bb6dba570e4698c3998eca6f0fc2ccb60575a563ea74
-          command: ["/bin/sh", "-c", "
-            mkdir -p /font &&
-            touch /font/font.ttf &&
-            wget -O /font/font.ttf https://github.com/coz-m/MPLUS_FONTS/raw/refs/heads/master/fonts/ttf/Mplus1-Regular.ttf"]
+          command: [
+              "/bin/sh",
+              "-c",
+              "
+              mkdir -p /font &&
+              touch /font/font.ttf &&
+              wget -O /font/font.ttf https://github.com/coz-m/MPLUS_FONTS/raw/refs/heads/master/fonts/ttf/Mplus1-Regular.ttf",
+            ]
           volumeMounts:
             - name: font-volume
               mountPath: /font
@@ -40,6 +44,13 @@ spec:
               subPath: font.ttf
             - mountPath: /ai/data
               name: data-volume
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
       restartPolicy: Always
       volumes:
         - name: config-json
