@@ -1,0 +1,9 @@
+helmCharts:
+  - name: argo-workflows
+    repo: https://argoproj.github.io/argo-helm
+    version: 0.45.22
+    releaseName: argo-workflows
+    namespace: argo-workflows
+    includeCRDs: true
+    additionalValuesFiles:
+      - ./additional-values.yaml
