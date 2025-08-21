@@ -1,0 +1,12 @@
+replicaCount: 1
+
+affinity: {}
+
+persistence:
+  config:
+    enabled: true
+    size: "3Gi"
+    storageClass: "nfs-csi"
+  media:
+    enabled: false
+    size: "5Gi"
