@@ -38,6 +38,13 @@ spec:
               readOnly: true
           ports:
             - containerPort: 3000
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
       volumes:
         - name: misskey-default-config-file
           secret:
