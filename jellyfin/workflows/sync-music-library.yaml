@@ -16,6 +16,7 @@ spec:
         args:
           - |
             set -o pipefail
+            cp /tmp/cookies.txt /cookies.txt
             apk add --no-cache git
             git clone https://github.com/Kentaro1043/music-library.git /tmp/music-library
             cd /tmp/music-library
@@ -23,7 +24,7 @@ spec:
         volumeMounts:
           - mountPath: /music
             name: music-library
-          - mountPath: /cookies.txt
+          - mountPath: /tmp/cookies.txt
             name: cookies
             subPath: cookies.txt
 
