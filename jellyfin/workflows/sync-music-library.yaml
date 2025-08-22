@@ -11,7 +11,7 @@ spec:
   templates:
     - name: sync-music-library
       container:
-        image: ghcr.io/jmbannon/ytdl-sub:2025.08.22.post2
+        image: ghcr.io/jmbannon/ytdl-sub:2025.08.22.post2@sha256:b0bb43532d07c4306653d8225f43ebe3ea11d7d672ec2d532e18fd56fabadeaa
         command: ["sh", "-c"]
         args:
           - |
