@@ -16,7 +16,6 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: argo-workflow
-    namespace: argo
 roleRef:
   kind: Role
   name: argo-edit-cookiefile
