@@ -21,6 +21,7 @@ resources:
   - events/sensor.yaml
 
   - workflows/sync-music-library.yaml
+  - workflows/role.yaml
 
 generators:
   - ksops.yaml
