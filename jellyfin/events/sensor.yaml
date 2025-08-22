@@ -22,7 +22,6 @@ spec:
               kind: Workflow
               metadata:
                 generateName: sync-music-library-
-                name: sync-music-library-trigger
               spec:
                 workflowTemplateRef:
                   name: sync-music-library
