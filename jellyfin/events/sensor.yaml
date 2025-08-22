@@ -3,14 +3,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Sensor
 metadata:
-  name: jellyfin-github-webhook-sensor
+  name: sync-music-library
 spec:
   dependencies:
-    - eventName: music-library
-      eventSourceName: jellyfin-github-webhook
-      name: jellyfin-github-webhook
+    - eventName: sync-music-library
+      eventSourceName: sync-music-library
+      name: sync-music-library
   triggers:
     - template:
-        name: jellyfin-github-webhook-trigger
+        name: sync-music-library-trigger
         argoWorkflow:
           name: sync-music-library

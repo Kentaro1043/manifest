@@ -3,7 +3,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: EventSource
 metadata:
-  name: jellyfin-github-webhook
+  name: sync-music-library
 spec:
   service:
     ports:
@@ -11,7 +11,7 @@ spec:
         port: 12000
         targetPort: 12000
   github:
-    music-library:
+    sync-music-library:
       owner: "Kentaro1043"
       repository: "music-library"
       webhook:
@@ -23,10 +23,10 @@ spec:
         - "push"
 
       apiToken:
-        name: jellyfin-github-webhook
+        name: github-webhook
         key: api-token
       webhookSecret:
-        name: jellyfin-github-webhook
+        name: github-webhook
         key: webhook-secret
 
       insecure: false

@@ -1,9 +1,9 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: jellyfin-github-webhook-tls
+  name: sync-music-library
 spec:
-  secretName: jellyfin-github-webhook-tls
+  secretName: sync-music-library-tls
   dnsNames:
     - "jf-webhook.kentaro1043.com"
   issuerRef:
