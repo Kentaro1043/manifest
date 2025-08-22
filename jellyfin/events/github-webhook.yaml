@@ -1,4 +1,5 @@
-# Info on GitHub Webhook: https://developer.github.com/v3/repos/hooks/#create-a-hook
+# yaml-language-server: $schema=https://raw.githubusercontent.com/argoproj/argo-events/refs/heads/master/api/jsonschema/schema.json
+
 apiVersion: argoproj.io/v1alpha1
 kind: EventSource
 metadata:
