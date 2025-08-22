@@ -9,7 +9,7 @@ spec:
     - kind: Rule
       match: Host(`jf-webhook.kentaro1043.com`)
       services:
-        - name: jellyfin-github-commit-eventsource-svc
+        - name: jellyfin-github-webhook-eventsource-svc
           port: 12000
 
   tls:
