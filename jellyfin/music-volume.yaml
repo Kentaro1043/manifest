@@ -9,4 +9,4 @@ spec:
   volumeMode: Filesystem
   storageClassName: nfs-csi
   accessModes:
-    - ReadWriteOncePod
+    - ReadWriteMany
