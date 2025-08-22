@@ -8,3 +8,7 @@ workflow:
     name: "argo-workflow"
   rbac:
     create: true
+
+controller:
+  workflowNamespaces:
+    - "jellyfin"
