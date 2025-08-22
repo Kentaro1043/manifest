@@ -23,8 +23,14 @@ spec:
         volumeMounts:
           - mountPath: /music
             name: music-library
+          - mountPath: /cookies.txt
+            name: cookies
+            subPath: cookies.txt
 
   volumes:
     - name: music-library
       persistentVolumeClaim:
         claimName: jellyfin-music
+    - name: cookies
+      secret:
+        secretName: cookiefile
