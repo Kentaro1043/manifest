@@ -29,7 +29,7 @@ spec:
             ytdl-sub sub
 
             # Renew cookie
-            kubectl create secret generic cookiefile -n default --from-file=cookies.txt=/cookies.txt --dry-run=client -o yaml | kubectl apply -f -
+            kubectl create secret generic cookiefile -n jellyfin --from-file=cookies.txt=/cookies.txt --dry-run=client -o yaml | kubectl apply -f -
         volumeMounts:
           - mountPath: /music
             name: music-library
