@@ -17,7 +17,6 @@ spec:
           - |
             set -o pipefail
             cp /tmp/cookies.txt /cookies.txt
-            ls -l /
             apk add --no-cache git
             git clone https://github.com/Kentaro1043/music-library.git /tmp/music-library
             cd /tmp/music-library
