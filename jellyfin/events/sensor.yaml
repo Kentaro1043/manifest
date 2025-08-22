@@ -13,4 +13,14 @@ spec:
     - template:
         name: sync-music-library-trigger
         argoWorkflow:
-          name: sync-music-library
+          operation: submit
+          source:
+            resource:
+              apiVersion: argoproj.io/v1alpha1
+              kind: Workflow
+              metadata:
+                generateName: sync-music-library-
+                name: sync-music-library-trigger
+              spec:
+                workflowTemplateRef:
+                  name: sync-music-library
