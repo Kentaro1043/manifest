@@ -5,6 +5,8 @@ kind: Sensor
 metadata:
   name: sync-music-library
 spec:
+  template:
+    serviceAccountName: sync-music-library
   dependencies:
     - eventName: sync-music-library
       eventSourceName: sync-music-library

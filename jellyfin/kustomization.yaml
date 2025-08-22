@@ -14,6 +14,7 @@ resources:
   - events/sync-music-library.yaml
   - events/ingress-route.yaml
   - events/certificate.yaml
+  - events/sa.yaml
   - events/eventbus.yaml
   - events/sensor.yaml
 
