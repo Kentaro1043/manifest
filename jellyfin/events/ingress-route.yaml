@@ -1,7 +1,7 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: jellyfin-github-webhook
+  name: sync-music-library
 spec:
   entryPoints:
     - websecure
@@ -9,8 +9,8 @@ spec:
     - kind: Rule
       match: Host(`jf-webhook.kentaro1043.com`)
       services:
-        - name: jellyfin-github-webhook-eventsource-svc
+        - name: sync-music-library-eventsource-svc
           port: 12000
 
   tls:
-    secretName: jellyfin-github-webhook-tls
+    secretName: sync-music-library-tls

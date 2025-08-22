@@ -2,6 +2,6 @@ nameReference:
   - kind: Secret
     fieldSpecs:
       - kind: EventSource
-        path: spec/github/music-library/apiToken/name
+        path: spec/github/sync-music-library/apiToken/name
       - kind: EventSource
-        path: spec/github/music-library/webhookSecret/name
+        path: spec/github/sync-music-library/webhookSecret/name
