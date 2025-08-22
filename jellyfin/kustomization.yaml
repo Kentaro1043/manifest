@@ -13,6 +13,7 @@ resources:
   - events/github-webhook.yaml
   - events/ingress-route.yaml
   - events/certificate.yaml
+  - events/eventbus.yaml
 
 generators:
   - ksops.yaml

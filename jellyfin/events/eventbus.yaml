@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/argoproj/argo-events/refs/heads/master/api/jsonschema/schema.json
+
+apiVersion: argoproj.io/v1alpha1
+kind: EventBus
+metadata:
+  name: default
+spec:
+  version: 2.10.10
+  replicas: 3
