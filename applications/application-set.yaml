@@ -35,3 +35,10 @@ spec:
         automated:
           prune: true
           selfHeal: true
+      ignoreDifferences:
+        - group: apps
+          kind: Secret
+          name: cookiefile
+          namespace: jellyfin
+          jsonPointers:
+            - /data/cookies.txt
