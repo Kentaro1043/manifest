@@ -10,3 +10,12 @@ helmCharts:
 resources:
   - ingress-route.yaml
   - certificate.yaml
+  - events/github-webhook.yaml
+  - events/ingress-route.yaml
+  - events/certificate.yaml
+
+generators:
+  - ksops.yaml
+
+configurations:
+  - kustomize-config.yaml

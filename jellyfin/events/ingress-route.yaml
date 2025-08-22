@@ -1,0 +1,16 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: jellyfin-github-webhook
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`jf-webhook.kentaro1043.com`)
+      services:
+        - name: github-commit-eventsource-svc
+          port: 12000
+
+  tls:
+    secretName: jellyfin-github-webhook-tls

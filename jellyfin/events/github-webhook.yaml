@@ -1,0 +1,33 @@
+# Info on GitHub Webhook: https://developer.github.com/v3/repos/hooks/#create-a-hook
+apiVersion: argoproj.io/v1alpha1
+kind: EventSource
+metadata:
+  name: jellyfin-github-webhook
+spec:
+  service:
+    ports:
+      - name: github-webhook
+        port: 12000
+        targetPort: 12000
+  github:
+    music-library:
+      owner: "Kentaro1043"
+      repository: "music-library"
+      webhook:
+        endpoint: /push
+        port: "12000"
+        method: POST
+        url: http://jf-webhook.kentaro1043.com
+      events:
+        - "push"
+
+      apiToken:
+        name: jellyfin-github-webhook
+        key: api-token
+      webhookSecret:
+        name: jellyfin-github-webhook
+        key: webhook-secret
+
+      insecure: false
+      active: true
+      contentType: json
