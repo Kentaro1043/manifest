@@ -5,5 +5,3 @@ nameReference:
         path: spec/github/sync-music-library/apiToken/name
       - kind: EventSource
         path: spec/github/sync-music-library/webhookSecret/name
-      - kind: WorkflowTemplate
-        path: spec/volumes[]/secret/secretName

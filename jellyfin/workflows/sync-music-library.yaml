@@ -16,11 +16,20 @@ spec:
         args:
           - |
             set -o pipefail
+
+            # Get cookies from Secret
             cp /tmp/cookies.txt /cookies.txt
-            apk add --no-cache git
+
+            # Install dependencies
+            apk add --no-cache git kubectl
+
+            # Execute ytdl-sub
             git clone https://github.com/Kentaro1043/music-library.git /tmp/music-library
             cd /tmp/music-library
             ytdl-sub sub
+
+            # Renew cookie
+            kubectl create secret generic cookiefile -n default --from-file=cookies.txt=/cookies.txt --dry-run=client -o yaml | kubectl apply -f -
         volumeMounts:
           - mountPath: /music
             name: music-library
