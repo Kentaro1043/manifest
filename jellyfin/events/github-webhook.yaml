@@ -18,7 +18,7 @@ spec:
         endpoint: /push
         port: "12000"
         method: POST
-        url: http://jf-webhook.kentaro1043.com
+        url: https://jf-webhook.kentaro1043.com
       events:
         - "push"
 
