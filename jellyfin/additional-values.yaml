@@ -10,3 +10,12 @@ persistence:
   media:
     enabled: false
     size: "5Gi"
+
+volumes:
+  - name: music-library
+    persistentVolumeClaim:
+      claimName: jellyfin-music
+
+volumeMounts:
+  - mountPath: /music
+    name: music-library

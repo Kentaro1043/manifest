@@ -10,6 +10,7 @@ helmCharts:
 resources:
   - ingress-route.yaml
   - certificate.yaml
+  - music-volume.yaml
 
   - events/sync-music-library.yaml
   - events/ingress-route.yaml

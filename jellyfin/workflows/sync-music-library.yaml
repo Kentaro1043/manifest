@@ -6,11 +6,25 @@ metadata:
   name: sync-music-library
   generateName: sync-music-library-
 spec:
-  entrypoint: hello
+  entrypoint: sync-music-library
   serviceAccountName: argo-workflow
   templates:
-    - name: hello
+    - name: sync-music-library
       container:
-        image: alpine:3.17@sha256:8fc3dacfb6d69da8d44e42390de777e48577085db99aa4e4af35f483eb08b989
+        image: ghcr.io/jmbannon/ytdl-sub:2025.08.22.post2
         command: ["sh", "-c"]
-        args: ["echo Hello, World!"]
+        args:
+          - |
+            set -o pipefail
+            apk add --no-cache git
+            git clone https://github.com/Kentaro1043/music-library.git /tmp/music-library
+            cd /tmp/music-library
+            ytdl-sub sub
+        volumeMounts:
+          - mountPath: /music
+            name: music-library
+
+  volumes:
+    - name: music-library
+      persistentVolumeClaim:
+        claimName: jellyfin-music
