@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/argoproj/argo-events/refs/heads/master/api/jsonschema/schema.json
+
+apiVersion: argoproj.io/v1alpha1
+kind: Sensor
+metadata:
+  name: jellyfin-github-webhook-sensor
+spec:
+  dependencies:
+    - eventName: music-library
+      eventSourceName: jellyfin-github-webhook
+      name: jellyfin-github-webhook
+  triggers:
+    - template:
+        name: jellyfin-github-webhook-trigger
+        argoWorkflow:
+          name: sync-music-library
