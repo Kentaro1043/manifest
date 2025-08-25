@@ -163,9 +163,9 @@ repoServer:
 notifications:
   secret:
     create: false
-  #  notifiers:
-  #    service.webhook.discord:
-  #      url: https://discord.com/api/webhooks/.../...
+  notifiers:
+    service.webhook.discord:
+      url: $discord-webhook-url
 
   subscriptions:
     - recipients:
