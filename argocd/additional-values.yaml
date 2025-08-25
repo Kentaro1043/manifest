@@ -164,7 +164,7 @@ notifications:
   secret:
     create: false
   notifiers:
-    service.webhook.discord:
+    service.webhook.discord: |
       url: $discord-webhook-url
 
   subscriptions:
