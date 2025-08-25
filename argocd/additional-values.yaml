@@ -225,7 +225,7 @@ notifications:
             ❓️ [{{.app.metadata.name}}]({{.context.argocdUrl}}/applications/{{.app.metadata.name}}) Sync Status Unknown ❓️
 
   # ref: https://github.com/argoproj/argo-cd/blob/master/notifications_catalog/install.yaml
-  trigger:
+  triggers:
     on-created: |
       - description: Application is created.
         oncePer: app.metadata.name
