@@ -191,7 +191,7 @@ notifications:
           method: POST
           body: |
             {
-              "content":"# :tada: [{{.app.metadata.name}}]({{.context.argocdUrl}}/applications/{{.app.metadata.name}}) Created :tada:"
+              "content":"# :tada: [{{.app.metadata.name}}]({{.context.argocdUrl}}/applications/{{.app.metadata.name}}) Created"
             }
     template.app-deleted: |
       webhook:
@@ -199,7 +199,7 @@ notifications:
           method: POST
           body: |
             {
-              "content":"# :boom: [{{.app.metadata.name}}]({{.context.argocdUrl}}/applications/{{.app.metadata.name}}) Deleted :boom:"
+              "content":"# :boom: [{{.app.metadata.name}}]({{.context.argocdUrl}}/applications/{{.app.metadata.name}}) Deleted"
             }
     template.app-deployed: |
       webhook:
@@ -207,7 +207,7 @@ notifications:
           method: POST
           body: |
             {
-              "content":"# :rocket: [{{.app.metadata.name}}]({{.context.argocdUrl}}/applications/{{.app.metadata.name}}) for [`{{ substr 0 7 .app.status.sync.revision }}`](<https://github.com/Kentaro1043/manifest/commit/{{ .app.status.sync.revision }}>) Deployed :rocket:"
+              "content":"# :rocket: [{{.app.metadata.name}}]({{.context.argocdUrl}}/applications/{{.app.metadata.name}}) for [`{{ substr 0 7 .app.status.sync.revision }}`](<https://github.com/Kentaro1043/manifest/commit/{{ .app.status.sync.revision }}>) Deployed"
             }
     template.app-health-degraded: |
       webhook:
@@ -215,7 +215,7 @@ notifications:
           method: POST
           body: |
             {
-              "content":"# :fire: [{{.app.metadata.name}}]({{.context.argocdUrl}}/applications/{{.app.metadata.name}}) Degraded :fire:"
+              "content":"# :fire: [{{.app.metadata.name}}]({{.context.argocdUrl}}/applications/{{.app.metadata.name}}) Degraded"
             }
     template.app-sync-failed: |
       webhook:
@@ -223,7 +223,7 @@ notifications:
           method: POST
           body: |
             {
-              "content":"# :exclamation: [{{.app.metadata.name}}]({{.context.argocdUrl}}/applications/{{.app.metadata.name}}) Sync Failed :exclamation:"
+              "content":"# :exclamation: [{{.app.metadata.name}}]({{.context.argocdUrl}}/applications/{{.app.metadata.name}}) Sync Failed"
             }
     template.app-sync-running: |
       webhook:
@@ -231,7 +231,7 @@ notifications:
           method: POST
           body: |
             {
-              "content":"# :arrows_counterclockwise: [{{.app.metadata.name}}]({{.context.argocdUrl}}/applications/{{.app.metadata.name}}) Syncing :arrows_counterclockwise:"
+              "content":"# :arrows_counterclockwise: [{{.app.metadata.name}}]({{.context.argocdUrl}}/applications/{{.app.metadata.name}}) Syncing"
             }
     template.app-sync-status-unknown: |
       webhook:
@@ -239,7 +239,7 @@ notifications:
           method: POST
           body: |
             {
-              "content":"# :question: [{{.app.metadata.name}}]({{.context.argocdUrl}}/applications/{{.app.metadata.name}}) Sync Status Unknown :question:"
+              "content":"# :question: [{{.app.metadata.name}}]({{.context.argocdUrl}}/applications/{{.app.metadata.name}}) Sync Status Unknown"
             }
 
   # ref: https://github.com/argoproj/argo-cd/blob/master/notifications_catalog/install.yaml
