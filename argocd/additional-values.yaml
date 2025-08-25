@@ -1,7 +1,11 @@
 global:
   domain: cd.kentaro1043.com
 
+controller:
+  replicas: 1
+
 server:
+  replicas: 2
   certificate:
     enabled: false
     issuer:
@@ -13,6 +17,12 @@ server:
     annotations:
       traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
     tls: true
+
+applicationSet:
+  replicas: 2
+
+redis-ha:
+  enabled: true
 
 ### ksops configuration
 ### https://github.com/viaduct-ai/kustomize-sops#argo-cd-helm-chart-with-custom-tooling
@@ -32,6 +42,7 @@ configs:
       https
 
 repoServer:
+  replicas: 2
   env:
     # ksops & helm-secrets
     - name: XDG_CONFIG_HOME
