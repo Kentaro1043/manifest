@@ -31,7 +31,7 @@ spec:
             - name: font-volume
               mountPath: /font
       containers:
-        - image: ghcr.io/kentaro1043/ai-arm64:master@sha256:51f3c07b841d7cbc733b80561ac56bd8e102fe2670060d8f1fedd077bea90038
+        - image: ghcr.io/kentaro1043/ai-arm64:master@sha256:97999684869b1b41e06c389691d473737d7728b0397f85753af4ac8a84864202
           name: ai
           volumeMounts:
             - mountPath: /ai/config.json
