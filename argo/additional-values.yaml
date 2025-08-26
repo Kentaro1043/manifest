@@ -8,11 +8,11 @@ workflow:
     name: "argo-workflow"
   rbac:
     create: true
-    rules:
-      - apiGroups: [""]
-        resources: ["secrets"]
-        resourceNames: ["discord-webhook"]
-        verbs: ["get", "list"]
+#    rules:
+#      - apiGroups: [""]
+#        resources: ["secrets"]
+#        resourceNames: ["discord-webhook"]
+#        verbs: ["get", "list"]
 
 controller:
   workflowDefaults:
