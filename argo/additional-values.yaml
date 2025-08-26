@@ -9,18 +9,18 @@ workflow:
   rbac:
     create: true
 
-  controller:
-    workflowDefaults:
-      spec:
-        onExit: discord-notification
-        templates:
-          - name: discord-notification
-            steps:
-              - - name: notify
-                  templateRef:
-                    clusterScope: true
-                    name: discord-notification
-                    template: send-discord-notification
+controller:
+  workflowDefaults:
+    spec:
+      onExit: discord-notification
+      templates:
+        - name: discord-notification
+          steps:
+            - - name: notify
+                templateRef:
+                  clusterScope: true
+                  name: discord-notification
+                  template: send-discord-notification
 
   workflowNamespaces:
     - "jellyfin"
