@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: invidious-companion
-          image: quay.io/invidious/invidious-companion:latest@sha256:429a90c260a06907579cf864380220bd968ab934d00834fb6ce0d6c60cbf38ba
+          image: quay.io/invidious/invidious-companion:latest@sha256:345617b6765283b79953be50e5465880a00c25b47279ef7de64265842af44fee
           ports:
             - containerPort: 8282
           volumeMounts:
