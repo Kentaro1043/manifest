@@ -1,8 +1,21 @@
 # mainfest
 
+## Tasks
+
+### build
+
+kustomizeプロジェクトをビルドする。
+
+INPUTS: DIR
+
+```bash
+kustomize build $DIR --enable-alpha-plugins --enable-exec --enable-helm > built.yaml
+```
+
 ## 事前準備
 
 ### 1. ageで鍵生成
+
 ```sh
 age-keygen -o keys.txt 
 ```
@@ -19,6 +32,7 @@ mv keys.txt "$HOME/Library/Application Support/sops/age"
 ```
 
 Linux
+
 ```sh
 mkdir -p "$XDG_CONFIG_HOME/sops/age"
 mv keys.txt"$XDG_CONFIG_HOME/sops/age"
