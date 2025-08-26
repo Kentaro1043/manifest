@@ -47,4 +47,5 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: discord-webhook
+                namespace: argo
                 key: discord-webhook-url
