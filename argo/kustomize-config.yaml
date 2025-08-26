@@ -4,4 +4,4 @@ nameReference:
       - kind: Middleware
         path: spec/basicAuth/secret
       - kind: ClusterWorkflowTemplate
-        path: spec/env[]/valueFrom/secretKeyRef/name
+        path: spec/templates[]/container/env[]/valueFrom/secretKeyRef/name
