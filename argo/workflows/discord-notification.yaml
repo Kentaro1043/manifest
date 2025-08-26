@@ -24,15 +24,11 @@ spec:
             WORKFLOW_URL="$WORKFLOW_BASE_URL/workflows/$WORKFLOW_NAMESPACE/$WORKFLOW_NAME"
             if [ "$WORKFLOW_STATUS" = "Succeeded" ]; then
               MESSAGE=$(
-                echo "## :white_check_mark: Workflow \`$WORKFLOW_NAME\` succeeded."
-                echo "Duration: $WORKFLOW_DURATION s"
-                echo "[Dashboard URL]($WORKFLOW_URL)"
+                echo "## :white_check_mark: Workflow \`$WORKFLOW_NAME\` succeeded.\nDuration: $WORKFLOW_DURATION s\n[Dashboard URL]($WORKFLOW_URL)"
               )
             else
               MESSAGE=$(
-                echo "## :rotating_light: Workflow \`$WORKFLOW_NAME\` failed."
-                echo "Duration: $WORKFLOW_DURATION s"
-                echo "[Dashboard URL]($WORKFLOW_URL)"
+                echo "## :rotating_light: Workflow \`$WORKFLOW_NAME\` failed.\nDuration: $WORKFLOW_DURATION s\n[Dashboard URL]($WORKFLOW_URL)"
               )
             fi
 
