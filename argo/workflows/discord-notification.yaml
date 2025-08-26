@@ -30,21 +30,21 @@ spec:
             fi
 
             curl -X POST -H "Content-Type: application/json" -d "{\"content\": \"$MESSAGE\"}" "$WEBHOOK_URL"
-  env:
-    - name: WORKFLOW_BASE_URL
-      value: "https://argo.kentaro1043.com"
-    - name: WORKFLOW_NAMESPACE
-      value: "{{workflow.namespace}}"
-    - name: WORKFLOW_NAME
-      value: "{{workflow.name}}"
-    - name: WORKFLOW_STATUS
-      value: "{{workflow.status}}"
-    - name: WORKFLOW_DURATION
-      value: "{{workflow.duration}}"
-    - name: WORKFLOW_FAILURES
-      value: "{{workflow.failures}}"
-    - name: WEBHOOK_URL
-      valueFrom:
-        secretKeyRef:
-          name: discord-webhook
-          key: discord-webhook-url
+        env:
+          - name: WORKFLOW_BASE_URL
+            value: "https://argo.kentaro1043.com"
+          - name: WORKFLOW_NAMESPACE
+            value: "{{workflow.namespace}}"
+          - name: WORKFLOW_NAME
+            value: "{{workflow.name}}"
+          - name: WORKFLOW_STATUS
+            value: "{{workflow.status}}"
+          - name: WORKFLOW_DURATION
+            value: "{{workflow.duration}}"
+          - name: WORKFLOW_FAILURES
+            value: "{{workflow.failures}}"
+          - name: WEBHOOK_URL
+            valueFrom:
+              secretKeyRef:
+                name: discord-webhook
+                key: discord-webhook-url
