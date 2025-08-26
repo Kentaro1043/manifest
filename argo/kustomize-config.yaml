@@ -3,3 +3,5 @@ nameReference:
     fieldSpecs:
       - kind: Middleware
         path: spec/basicAuth/secret
+      - kind: ClusterWorkflowTemplate
+        path: spec/env[]/valueFrom/secretKeyRef/name
