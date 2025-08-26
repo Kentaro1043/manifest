@@ -13,6 +13,8 @@ resources:
   - certificate.yaml
   - middleware.yaml
 
+  - workflows/discord-notification.yaml
+
 generators:
   - ksops.yaml
 

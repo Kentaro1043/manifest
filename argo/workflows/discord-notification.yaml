@@ -1,0 +1,54 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ClusterWorkflowTemplate
+metadata:
+  name: discord-notification
+  generateName: discord-notification-
+spec:
+  serviceAccountName: argo-workflow
+  templates:
+    - name: send-discord-notification
+      inputs:
+        parameters:
+          - name: webhook-url
+      container:
+        image: alpine:3.22.1
+        command: ["sh", "-c"]
+        args:
+          - |
+            #!/bin/sh
+
+            set -eux
+
+            apk add --no-cache curl
+
+            WORKFLOW_URL="$WORKFLOW_BASE_URL/workflows/$WORKFLOW_NAMESPACE/$WORKFLOW_NAME"
+            if [ "$WORKFLOW_STATUS" = "Succeeded" ]; then
+              MESSAGE=$(
+                echo "## :white_check_mark: Workflow \`$WORKFLOW_NAME\` succeeded."
+                echo "Duration: $WORKFLOW_DURATION s"
+                echo "[Dashboard URL]($WORKFLOW_URL)"
+              )
+            else
+              MESSAGE=$(
+                echo "## :rotating_light: Workflow \`$WORKFLOW_NAME\` failed."
+                echo "Duration: $WORKFLOW_DURATION s"
+                echo "[Dashboard URL]($WORKFLOW_URL)"
+              )
+            fi
+
+            curl -X POST -H "Content-Type: application/json" -d "{\"content\": \"$MESSAGE\"}" "$WEBHOOK_URL"
+        env:
+          - name: WORKFLOW_BASE_URL
+            value: "https://argo.kentaro1043.com"
+          - name: WORKFLOW_NAMESPACE
+            value: "{{workflow.namespace}}"
+          - name: WORKFLOW_NAME
+            value: "{{workflow.name}}"
+          - name: WORKFLOW_STATUS
+            value: "{{workflow.status}}"
+          - name: WORKFLOW_DURATION
+            value: "{{workflow.duration}}"
+          - name: WORKFLOW_FAILURES
+            value: "{{workflow.failures}}"
+          - name: WEBHOOK_URL
+            value: "{{inputs.parameters.webhook-url}}"
