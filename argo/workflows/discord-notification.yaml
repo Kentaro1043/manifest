@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: ClusterWorkflowTemplate
 metadata:
   name: discord-notification
+  namespace: argo
   generateName: discord-notification-
 spec:
   serviceAccountName: argo-workflow
