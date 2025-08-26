@@ -15,13 +15,18 @@ spec:
         command: ["sh", "-c"]
         args:
           - |
-            set -o pipefail
+            #!/bin/sh
+
+            set -eux
 
             # Get cookies from Secret
             cp /tmp/cookies.txt /cookies.txt
 
             # Install dependencies
             apk add --no-cache git kubectl
+
+            # Test cookie
+            yt-dlp --cookies /cookies.txt --skip-download "https://www.youtube.com/watch?v=jNQXAC9IVRw"
 
             # Execute ytdl-sub
             git clone https://github.com/Kentaro1043/music-library.git /tmp/music-library
