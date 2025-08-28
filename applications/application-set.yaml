@@ -17,6 +17,7 @@ spec:
           - path: "cert-manager"
           - path: "grafana-k8s-monitoring-app"
           - path: "nfs"
+          - path: "portainer"
           - path: "traefik"
 
   template:
