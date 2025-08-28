@@ -13,9 +13,11 @@ spec:
         repoURL: https://github.com/Kentaro1043/manifest
         revision: main
         directories:
-          - path: "*"
-          - path: "applications"
-            exclude: true
+          - path: "argocd"
+          - path: "cert-manager"
+          - path: "grafana-k8s-monitoring-app"
+          - path: "nfs"
+          - path: "traefik"
 
   template:
     metadata:
