@@ -12,6 +12,22 @@ INPUTS: DIR
 kustomize build $DIR --enable-alpha-plugins --enable-exec --enable-helm > built.yaml
 ```
 
+### enc
+
+sopsで暗号化する。
+
+INPUTS: FILE
+
+```bash
+case "$FILE" in
+  *.yaml) OUT="${FILE%.yaml}.enc.yaml" ;;
+  *.yml)  OUT="${FILE%.yml}.enc.yml" ;;
+  *)      OUT="${FILE}.enc" ;;
+esac
+
+sops -e "$FILE" > "$OUT"
+```
+
 ## 事前準備
 
 ### 1. ageで鍵生成
@@ -39,31 +55,6 @@ mv keys.txt"$XDG_CONFIG_HOME/sops/age"
 mv keys.txt 
 ```
 
-## secretの入れ方
-
-### 1. 暗号化
-
-```sh
-sops -e some-secret.yaml > some-secret.enc.yaml
-```
-
-### 2. 設定
-
-`ksops.yaml`
-
-```yaml
-apiVersion: viaduct.ai/v1
-kind: ksops
-metadata:
-  name: ksops
-  annotations:
-    config.kubernetes.io/function: |
-      exec:
-        path: ksops
-files:
-  - ./secrets/some-secret.enc.yaml
-```
-
 ## Bootstrap
 
 ### 1. sops用secret作成
@@ -72,7 +63,7 @@ files:
 kubectl create secret generic sops-age --namespace=argocd --from-file="$HOME/Library/Application Support/sops/age/keys.txt"
 ```
 
-### 2. `argocd`、`nginx-ingress`をデプロイ
+### 2. `argocd`をデプロイ
 
 ```sh
 kubectl create ns argocd
@@ -81,4 +72,4 @@ kustomize build . --enable-alpha-plugins --enable-exec --enable-helm | kubectl a
 
 ### 3. ArgoCDのUIからリポジトリなど設定
 
-### 4. `argocd`、`nginx-ingress`を含む各アプリをSync
+### 4. `argocd`、`traefik`を含む各アプリをSync
