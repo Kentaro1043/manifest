@@ -19,6 +19,7 @@ spec:
           - path: "cert-manager"
           - path: "grafana-k8s-monitoring-app"
           - path: "jellyfin"
+          - path: "n8n"
           - path: "nfs"
           - path: "portainer"
           - path: "traefik"
