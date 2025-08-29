@@ -1,0 +1,15 @@
+helmCharts:
+  - name: vaultwarden
+    repo: https://guerzon.github.io/vaultwarden
+    version: 0.34.3
+    releaseName: vaultwarden
+    namespace: vaultwarden
+    additionalValuesFiles:
+      - ./additional-values.yaml
+
+resources:
+  - ./ingress-route.yaml
+  - ./certificate.yaml
+
+generators:
+  - ./ksops.yaml

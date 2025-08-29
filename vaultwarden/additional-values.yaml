@@ -1,0 +1,45 @@
+domain: https://vw.kentaro1043.com
+
+resourceType: Deployment
+replicas: 2
+
+ingress:
+  enabled: false
+
+data:
+  size: 1Gi
+  class: nfs-csi
+
+database:
+  type: postgresql
+  host: private.oci.kentaro1043.com
+  username: vaultwarden
+  dbName: vaultwarden
+  existingSecret: "db-credentials"
+  existingSecretPasswordKey: "password"
+
+smtp:
+  host: smtp.gmail.com
+  from: service@kentaro1043.com
+  port: 587
+  security: starttls
+  existingSecret: smtp-credentials
+  username:
+    existingSecretKey: username
+  password:
+    existingSecretKey: password
+
+pushNotifications:
+  enabled: true
+  existingSecret: push-credentials
+  installationId:
+    existingSecretKey: installation-id
+  installationKey:
+    existingSecretKey: installation-key
+
+signupsAllowed: true
+invitationsAllowed: false
+
+adminToken:
+  existingSecret: admin-token
+  existingSecretKey: token
