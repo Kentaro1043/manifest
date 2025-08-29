@@ -13,9 +13,9 @@ data:
 database:
   type: postgresql
   host: private.oci.kentaro1043.com
-  username: vaultwarden
   dbName: vaultwarden
   existingSecret: "db-credentials"
+  existingSecretUserKey: "username"
   existingSecretPasswordKey: "password"
 
 smtp:
