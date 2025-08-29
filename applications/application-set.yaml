@@ -18,6 +18,7 @@ spec:
           - path: "argocd"
           - path: "cert-manager"
           - path: "grafana-k8s-monitoring-app"
+          - path: "jellyfin"
           - path: "nfs"
           - path: "portainer"
           - path: "traefik"
