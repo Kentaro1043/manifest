@@ -13,6 +13,8 @@ spec:
         repoURL: https://github.com/Kentaro1043/manifest
         revision: main
         directories:
+          - path: "argo"
+          - path: "argo-events"
           - path: "argocd"
           - path: "cert-manager"
           - path: "grafana-k8s-monitoring-app"
