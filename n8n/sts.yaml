@@ -47,7 +47,7 @@ spec:
             - name: DB_POSTGRESDB_HOST
               value: private.oci.kentaro1043.com
             - name: DB_POSTGRESDB_PORT
-              value: "65436"
+              value: "5432"
             - name: DB_POSTGRESDB_USER
               value: n8n
 
