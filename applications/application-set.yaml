@@ -21,7 +21,6 @@ spec:
           - path: "jellyfin"
           - path: "n8n"
           - path: "nfs"
-          - path: "portainer"
           - path: "traefik"
           - path: "vaultwarden"
 
