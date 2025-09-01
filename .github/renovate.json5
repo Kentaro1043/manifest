@@ -30,7 +30,8 @@
       matchPackageNames: ["misskey/misskey"],
     },
   ],
+  ignorePaths: ["**/.archive/**"],
   kubernetes: {
-    managerFilePatterns: ["/^(?!.*\\.archive).*.(ya?ml)$/"],
+    managerFilePatterns: ["/.+\\.ya?ml$/"],
   },
 }
