@@ -1,3 +1,11 @@
 {
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "biome.enabled": false,
+  "json.validate.enable": false,
+  "json.schemas": [
+    {
+      "fileMatch": ["/.github/renovate.json5"],
+      "url": "https://json.schemastore.org/renovate"
+    }
+  ]
 }
