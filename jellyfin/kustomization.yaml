@@ -25,5 +25,10 @@ resources:
 generators:
   - ksops.yaml
 
+configMapGenerator:
+  - name: radio-playlist
+    files:
+      - config/nhk.m3u8
+
 configurations:
   - kustomize-config.yaml
