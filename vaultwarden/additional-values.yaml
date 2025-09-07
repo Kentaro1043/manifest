@@ -1,7 +1,7 @@
 domain: https://vw.kentaro1043.com
 
 resourceType: Deployment
-replicas: 2
+replicas: 1
 
 # HA settings
 service:
