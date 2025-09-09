@@ -68,7 +68,7 @@ spec:
             apk add --no-cache curl
 
             # Trigger Jellyfin library scan
-            curl -X POST "http://jf.kentaro1043.com/Library/Refresh" -H "Authorization: MediaBrowser Token=${JELLYFIN_API_KEY}"
+            curl -X POST "https://jf.kentaro1043.com/Library/Refresh" -H "Authorization: MediaBrowser Token=${JELLYFIN_API_KEY}"
         env:
           - name: JELLYFIN_API_KEY
             valueFrom:
