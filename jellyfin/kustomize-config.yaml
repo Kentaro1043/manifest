@@ -6,4 +6,4 @@ nameReference:
       - kind: EventSource
         path: spec/github/sync-music-library/webhookSecret/name
       - kind: WorkflowTemplate
-        path: spec/templates[]/steps[]/[]/container/env[]/valueFrom/secretKeyRef/name
+        path: spec/templates[]/steps[]/container/env[]/valueFrom/secretKeyRef/name
