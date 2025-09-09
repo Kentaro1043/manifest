@@ -12,62 +12,66 @@ spec:
     - name: sync-music-library
       steps:
         - - name: download-music
-            container:
-              image: ghcr.io/jmbannon/ytdl-sub:2025.08.22.post2@sha256:b0bb43532d07c4306653d8225f43ebe3ea11d7d672ec2d532e18fd56fabadeaa
-              command: ["sh", "-c"]
-              args:
-                - |
-                  #!/bin/sh
-
-                  set -eux
-
-                  # Get cookies from Secret
-                  cp /tmp/cookies.txt /cookies.txt
-
-                  # Install dependencies
-                  apk add --no-cache git kubectl
-
-                  # Test cookie
-                  yt-dlp --cookies /cookies.txt --skip-download "https://www.youtube.com/watch?v=jNQXAC9IVRw"
-
-                  # Execute ytdl-sub
-                  git clone https://github.com/Kentaro1043/music-library.git /tmp/music-library
-                  cd /tmp/music-library
-                  ytdl-sub sub
-
-                  # Renew cookie
-                  kubectl create secret generic cookiefile -n jellyfin --from-file=cookies.txt=/cookies.txt --dry-run=client -o yaml | kubectl apply -f -
-              volumeMounts:
-                - mountPath: /music
-                  name: music-library
-                - mountPath: /tmp/cookies.txt
-                  name: cookies
-                  subPath: cookies.txt
-
-            volumes:
-              - name: music-library
-                persistentVolumeClaim:
-                  claimName: jellyfin-music
-              - name: cookies
-                secret:
-                  secretName: cookiefile
-
+            template: download-music
         - - name: update-library
-            container:
-              image: alpine:3.22.1
-              command: ["sh", "-c"]
-              args:
-                - |
-                  #!/bin/sh
-                  set -eux
+            template: update-library
 
-                  apk add --no-cache curl
+    - name: download-music
+      container:
+        image: ghcr.io/jmbannon/ytdl-sub:2025.08.22.post2@sha256:b0bb43532d07c4306653d8225f43ebe3ea11d7d672ec2d532e18fd56fabadeaa
+        command: ["sh", "-c"]
+        args:
+          - |
+            #!/bin/sh
 
-                  # Trigger Jellyfin library scan
-                  curl -X POST "http://jf.kentaro1043.com/Library/Refresh" -H "Authorization: MediaBrowser Token=${JELLYFIN_API_KEY}"
-              env:
-                - name: JELLYFIN_API_KEY
-                  valueFrom:
-                    secretKeyRef:
-                      name: jellyfin-api-key
-                      key: key
+            set -eux
+
+            # Get cookies from Secret
+            cp /tmp/cookies.txt /cookies.txt
+
+            # Install dependencies
+            apk add --no-cache git kubectl
+
+            # Test cookie
+            yt-dlp --cookies /cookies.txt --skip-download "https://www.youtube.com/watch?v=jNQXAC9IVRw"
+
+            # Execute ytdl-sub
+            git clone https://github.com/Kentaro1043/music-library.git /tmp/music-library
+            cd /tmp/music-library
+            ytdl-sub sub
+
+            # Renew cookie
+            kubectl create secret generic cookiefile -n jellyfin --from-file=cookies.txt=/cookies.txt --dry-run=client -o yaml | kubectl apply -f -
+        volumeMounts:
+          - mountPath: /music
+            name: music-library
+          - mountPath: /tmp/cookies.txt
+            name: cookies
+            subPath: cookies.txt
+
+      volumes:
+        - name: music-library
+          persistentVolumeClaim:
+            claimName: jellyfin-music
+        - name: cookies
+          secret:
+            secretName: cookiefile
+
+    - name: update-library
+      container:
+        image: alpine:3.22.1
+        command: ["sh", "-c"]
+        args:
+          - |
+            #!/bin/sh
+            set -eux
+            apk add --no-cache curl
+
+            # Trigger Jellyfin library scan
+            curl -X POST "http://jf.kentaro1043.com/Library/Refresh" -H "Authorization: MediaBrowser Token=${JELLYFIN_API_KEY}"
+        env:
+          - name: JELLYFIN_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: jellyfin-api-key
+                key: key
