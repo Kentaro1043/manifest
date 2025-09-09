@@ -20,3 +20,27 @@ roleRef:
   kind: Role
   name: argo-edit-cookiefile
   apiGroup: rbac.authorization.k8s.io
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: argo-read-jellyfin-api-key
+rules:
+  - apiGroups: [""]
+    resources: ["secrets"]
+    resourceNames: ["jellyfin-api-key"]
+    verbs: ["get", "list"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: argo-read-jellyfin-api-key
+subjects:
+  - kind: ServiceAccount
+    name: argo-workflow
+roleRef:
+  kind: Role
+  name: argo-read-jellyfin-api-key
+  apiGroup: rbac.authorization.k8s.io
