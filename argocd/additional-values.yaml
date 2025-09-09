@@ -41,6 +41,9 @@ configs:
       secrets,secrets+literal,
       https
 
+    # GitHub webhook secret
+    webhook.github.secret: $github-webhook-secret:secret
+
 repoServer:
   replicas: 2
   env:
