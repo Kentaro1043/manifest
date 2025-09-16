@@ -14,6 +14,11 @@ authentik:
     password: file:///postgres-creds/password
     name: authentik
 
+global:
+  envFrom:
+    - secretRef:
+        name: bootstrap-credentials
+
 postgresql:
   enabled: false
 

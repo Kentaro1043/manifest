@@ -8,5 +8,6 @@ metadata:
         path: ksops
 files:
   - ./secrets/authentik-secret.enc.yaml
+  - ./secrets/bootstrap-credentials.enc.yaml
   - ./secrets/postgres-credentials.enc.yaml
   - ./secrets/smtp-credentials.enc.yaml
