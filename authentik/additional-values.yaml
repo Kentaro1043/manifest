@@ -13,14 +13,12 @@ authentik:
     user: authentik
     password: file:///postgres-creds/password
     name: authentik
-  redis:
-    host: private.oci.kentaro1043.com
 
 postgresql:
   enabled: false
 
 redis:
-  enabled: false
+  enabled: true
 
 server:
   replicas: 2
