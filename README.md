@@ -28,6 +28,23 @@ esac
 sops -e "$FILE" > "$OUT"
 ```
 
+### dec
+
+sopsで復号化する。
+
+INPUTS: FILE
+
+```bash
+case "$FILE" in
+  *.enc.yaml) OUT="${FILE%.enc.yaml}.yaml" ;;
+  *.enc.yml)  OUT="${FILE%.enc.yml}.yml" ;;
+  *.enc)      OUT="${FILE%.enc}" ;;
+  *)          OUT="${FILE}.dec" ;;
+esac
+
+sops -d "$FILE" > "$OUT"
+```
+
 ## 事前準備
 
 ### 1. ageで鍵生成
