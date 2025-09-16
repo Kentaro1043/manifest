@@ -16,6 +16,7 @@ spec:
           - path: "argo"
           - path: "argo-events"
           - path: "argocd"
+          - path: "authentik"
           - path: "cert-manager"
           - path: "grafana-k8s-monitoring-app"
           - path: "jellyfin"

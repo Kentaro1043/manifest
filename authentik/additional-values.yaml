@@ -1,0 +1,69 @@
+authentik:
+  secret_key: file:///authentik-secret/secret-key
+  email:
+    from: service@kentaro1043.com
+    host: smtp.gmail.com
+    port: 587
+    use_tls: true
+    username: file:///smtp-creds/username
+    password: file:///smtp-creds/password
+
+  postgresql:
+    host: private.oci.kentaro1043.com
+    user: authentik
+    password: file:///postgres-creds/password
+    name: authentik
+  redis:
+    host: private.oci.kentaro1043.com
+
+postgresql:
+  enabled: false
+
+redis:
+  enabled: false
+
+server:
+  replicas: 2
+  volumes:
+    - name: authentik-secret
+      secret:
+        secretName: authentik-secret
+    - name: postgres-creds
+      secret:
+        secretName: postgres-credentials
+    - name: smtp-creds
+      secret:
+        secretName: smtp-credentials
+  volumeMounts:
+    - name: authentik-secret
+      mountPath: /authentik-secret
+      readOnly: true
+    - name: postgres-creds
+      mountPath: /postgres-creds
+      readOnly: true
+    - name: smtp-creds
+      mountPath: /smtp-creds
+      readOnly: true
+
+worker:
+  replicas: 2
+  volumes:
+    - name: authentik-secret
+      secret:
+        secretName: authentik-secret
+    - name: postgres-creds
+      secret:
+        secretName: postgres-credentials
+    - name: smtp-creds
+      secret:
+        secretName: smtp-credentials
+  volumeMounts:
+    - name: authentik-secret
+      mountPath: /authentik-secret
+      readOnly: true
+    - name: postgres-creds
+      mountPath: /postgres-creds
+      readOnly: true
+    - name: smtp-creds
+      mountPath: /smtp-creds
+      readOnly: true
