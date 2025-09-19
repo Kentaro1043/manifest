@@ -4,3 +4,6 @@ resources:
   - ingress-route.yaml
   - certificate.yaml
   - volume.yaml
+
+generators:
+  - ksops.yaml
