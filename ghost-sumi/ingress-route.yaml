@@ -8,8 +8,6 @@ spec:
   routes:
     - kind: Rule
       match: Host(`sumi.kentaro1043.com`) || Host(`sumi-admin.kentaro1043.com`)
-      middlewares:
-        - name: ghost-admin-redirect
       services:
         - name: ghost
           port: 2368
