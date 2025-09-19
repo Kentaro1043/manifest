@@ -1,0 +1,8 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: ghost-admin-redirect
+spec:
+  redirectRegex:
+    regex: ^https://sumi-admin\\.kentaro1043\\.com/(?!ghost)(.*)
+    replacement: https://sumi.kentaro1043.com/ghost

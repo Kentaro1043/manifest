@@ -2,6 +2,7 @@ resources:
   - sts.yaml
   - service.yaml
   - ingress-route.yaml
+  - middleware.yaml
   - certificate.yaml
   - volume.yaml
 
