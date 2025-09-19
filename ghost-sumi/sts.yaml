@@ -56,7 +56,7 @@ spec:
                   name: smtp-credentials
                   key: password
             - name: storage__active
-              value: "s3-store"
+              value: "s3"
             - name: storage__s3__accessKeyId
               valueFrom:
                 secretKeyRef:
@@ -88,6 +88,21 @@ spec:
             limits:
               memory: "512Mi"
               cpu: "500m"
+      initContainers:
+        # https://github.com/colinmeinke/ghost-storage-adapter-s3#installation
+        - name: install-s3-storage-adapter
+          image: ghost:6.0.9@sha256:0476b5029ce6ca0dc6cc0f4b1515a3c7982e28163f0d66fb3c230b0a257b8043
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              cd /var/lib/ghost
+              npm install ghost-storage-adapter-s3
+              mkdir -p ./content/adapters/storage
+              rm -rf ./content/adapters/storage/s3
+              cp -r ./node_modules/ghost-storage-adapter-s3 ./content/adapters/storage/s3
+          volumeMounts:
+            - name: ghost-content
+              mountPath: /var/lib/ghost/content
       volumes:
         - name: ghost-content
           persistentVolumeClaim:
