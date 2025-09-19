@@ -56,7 +56,7 @@ spec:
                   name: smtp-credentials
                   key: password
             - name: storage__active
-              value: "s3"
+              value: "s3-store"
             - name: storage__s3__accessKeyId
               valueFrom:
                 secretKeyRef:
