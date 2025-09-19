@@ -47,13 +47,7 @@ spec:
             limits:
               memory: "512Mi"
               cpu: "500m"
-
-  volumeClaimTemplates:
-    - metadata:
-        name: ghost-content
-      spec:
-        accessModes: ["ReadWriteOnce"]
-        resources:
-          requests:
-            storage: 1Gi
-        storageClassName: "nfs-csi"
+      volumes:
+        - name: ghost-content
+          persistentVolumeClaim:
+            claimName: ghost-content
