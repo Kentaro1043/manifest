@@ -100,6 +100,7 @@ spec:
               mkdir -p ./content/adapters/storage
               rm -rf ./content/adapters/storage/s3
               cp -r ./node_modules/ghost-storage-adapter-s3 ./content/adapters/storage/s3
+              chown -R 1000:1000 ./content/adapters
           volumeMounts:
             - name: ghost-content
               mountPath: /var/lib/ghost/content
