@@ -1,0 +1,16 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ghost
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`sumi.kentaro1043.com`) || Host(`sumi-admin.kentaro1043.com`)
+      services:
+        - name: ghost
+          port: 2368
+
+  tls:
+    secretName: ghost-tls

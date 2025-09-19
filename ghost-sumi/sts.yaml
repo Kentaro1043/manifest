@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: ghost
+spec:
+  selector:
+    matchLabels:
+      app: ghost
+  serviceName: "ghost"
+  template:
+    metadata:
+      labels:
+        app: ghost
+    spec:
+      containers:
+        - name: ghost
+          image: ghost:6.0.9
+          ports:
+            - containerPort: 2368
+          env:
+            - name: NODE_ENV
+              value: "production"
+            - name: url
+              value: "https://sumi.kentaro1043.com"
+            - name: admin__url
+              value: "https://sumi-admin.kentaro1043.com"
+            - name: database__client
+              value: "mysql"
+            - name: database__connection__host
+              value: "private.oci.kentaro1043.com"
+            - name: database__connection__user
+              value: "ghost_sumi"
+            - name: database__connection__password
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials
+                  key: password
+            - name: database__connection__database
+              value: "ghost_sumi"
+          volumeMounts:
+            - name: ghost-content
+              mountPath: /var/lib/ghost/content
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+
+  volumeClaimTemplates:
+    - metadata:
+        name: ghost-content
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 1Gi
+        storageClassName: "nfs-csi"

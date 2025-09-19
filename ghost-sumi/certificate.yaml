@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: ghost
+spec:
+  secretName: ghost-tls
+  dnsNames:
+    - "sumi.kentaro1043.com"
+    - "sumi-admin.kentaro1043.com"
+  issuerRef:
+    name: http-01-issuer
+    kind: ClusterIssuer
