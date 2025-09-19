@@ -18,6 +18,7 @@ spec:
           - path: "argocd"
           - path: "authentik"
           - path: "cert-manager"
+          - path: "ghost-sumi"
           - path: "grafana-k8s-monitoring-app"
           - path: "jellyfin"
           - path: "n8n"
