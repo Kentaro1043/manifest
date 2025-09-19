@@ -37,6 +37,47 @@ spec:
                   key: password
             - name: database__connection__database
               value: "ghost_sumi"
+            - name: mail__transport
+              value: "SMTP"
+            - name: mail__from
+              value: "service@kentaro1043.com"
+            - name: mail__options__host
+              value: "smtp.gmail.com"
+            - name: mail__options__port
+              value: "587"
+            - name: mail__options__auth__user
+              valueFrom:
+                secretKeyRef:
+                  name: smtp-credentials
+                  key: user
+            - name: mail__options__auth__pass
+              valueFrom:
+                secretKeyRef:
+                  name: smtp-credentials
+                  key: password
+            - name: storage__active
+              value: "s3"
+            - name: storage__s3__accessKeyId
+              valueFrom:
+                secretKeyRef:
+                  name: s3-credentials
+                  key: access-key
+            - name: storage__s3__secretAccessKey
+              valueFrom:
+                secretKeyRef:
+                  name: s3-credentials
+                  key: secret-key
+            - name: storage__s3__bucket
+              value: "ghost-sumi"
+            - name: storage__s3__region
+              value: "us-east-1"
+            - name: storage__s3__endpoint
+              valueFrom:
+                secretKeyRef:
+                  name: s3-credentials
+                  key: endpoint
+            - name: storage__s3__forcePathStyle
+              value: "true"
           volumeMounts:
             - name: ghost-content
               mountPath: /var/lib/ghost/content

@@ -8,3 +8,5 @@ metadata:
         path: ksops
 files:
   - ./secrets/db-credentials.enc.yaml
+  - ./secrets/s3-credentials.enc.yaml
+  - ./secrets/smtp-credentials.enc.yaml
