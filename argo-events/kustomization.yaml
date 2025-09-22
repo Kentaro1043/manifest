@@ -5,3 +5,5 @@ helmCharts:
     releaseName: argo-events
     namespace: argo-events
     includeCRDs: true
+    additionalValuesFiles:
+      - additional-values.yaml
