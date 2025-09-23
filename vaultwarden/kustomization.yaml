@@ -1,7 +1,7 @@
 helmCharts:
   - name: vaultwarden
     repo: https://guerzon.github.io/vaultwarden
-    version: 0.34.3
+    version: 0.34.4
     releaseName: vaultwarden
     namespace: vaultwarden
     additionalValuesFiles:
