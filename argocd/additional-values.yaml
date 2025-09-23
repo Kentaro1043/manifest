@@ -9,7 +9,7 @@ controller:
       cpu: "50m"
     limits:
       memory: "512Mi"
-      cpu: "150m"
+      cpu: "200m"
 
 server:
   replicas: 2
