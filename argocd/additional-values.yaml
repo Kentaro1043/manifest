@@ -43,7 +43,7 @@ applicationSet:
       cpu: "100m"
 
 redis-ha:
-  enabled: true
+  enabled: false
 
 ### ksops configuration
 ### https://github.com/viaduct-ai/kustomize-sops#argo-cd-helm-chart-with-custom-tooling

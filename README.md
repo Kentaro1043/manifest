@@ -12,6 +12,26 @@ INPUTS: DIR
 kustomize build $DIR --enable-alpha-plugins --enable-exec --enable-helm > built.yaml
 ```
 
+### apply
+
+ビルドしたマニフェストをKubernetesに適用する。
+
+INPUTS: DIR
+
+```bash
+kustomize build $DIR --enable-alpha-plugins --enable-exec --enable-helm | kubectl apply -f -
+```
+
+### delete
+
+ビルドしたマニフェストをKubernetesから削除する。
+
+INPUTS: DIR
+
+```bash
+kustomize build $DIR --enable-alpha-plugins --enable-exec --enable-helm | kubectl delete -f -
+```
+
 ### enc
 
 sopsで暗号化する。
