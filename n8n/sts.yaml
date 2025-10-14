@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: n8n
-          image: docker.n8n.io/n8nio/n8n:1.109.1@sha256:0257f3f0a5aef5edbe137972afc1915152d7e25fd5f596a28fd32d2622381156
+          image: docker.n8n.io/n8nio/n8n:1.116.1@sha256:cc32e0790f15e3e66fc6ad51f5511b6a9c474bd2c1d43893cd82fc875c3919f7
           ports:
             - containerPort: 5678
           env:
