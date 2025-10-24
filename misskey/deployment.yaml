@@ -38,7 +38,7 @@ spec:
               app: misskey-web
       containers:
         - name: misskey-web
-          image: misskey/misskey:2025.7.0@sha256:03ec2f7751cb7912adecf166542119867838ff78f4d0a0c08e654ffdb99f5c13
+          image: misskey/misskey:2025.10.1@sha256:c5259ee45650c5cb99cf4cee237102ac18cd5b6de2fd704a8c3499d95e64b02d
           volumeMounts:
             - name: misskey-default-config-file
               mountPath: /misskey/.config
