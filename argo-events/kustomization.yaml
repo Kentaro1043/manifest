@@ -1,7 +1,7 @@
 helmCharts:
   - name: argo-events
     repo: https://argoproj.github.io/argo-helm
-    version: 2.4.16
+    version: 2.4.17
     releaseName: argo-events
     namespace: argo-events
     includeCRDs: true
