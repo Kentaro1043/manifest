@@ -125,7 +125,7 @@ repoServer:
   initContainers:
     # ksops installation
     - name: install-ksops
-      image: viaductoss/ksops:v4.3.3
+      image: viaductoss/ksops:v4.3.3@sha256:6b5ec4b6144307f78bcddffd8f09020482836eee34cf77bf4ce8614b0452a73c
       command: ["/bin/sh", "-c"]
       args:
         - echo "Installing KSOPS...";
@@ -138,7 +138,7 @@ repoServer:
 
     # helm-secrets installation
     - name: download-tools
-      image: alpine:latest
+      image: alpine:latest@sha256:4b7ce07002c69e8f3d704a9c5d6fd3053be500b7f1c69fc0d80990c2ad8dd412
       imagePullPolicy: IfNotPresent
       command: [sh, -ec]
       env:
