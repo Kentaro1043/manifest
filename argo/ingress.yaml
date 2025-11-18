@@ -4,7 +4,7 @@ metadata:
   name: argo-workflows
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-    traefik.ingress.kubernetes.io/router.middlewares: "argo-auth@kubernetescrd"
+    traefik.ingress.kubernetes.io/router.middlewares: "argo-argo-auth@kubernetescrd"
     cert-manager.io/cluster-issuer: "http-01-issuer"
 
 spec:
