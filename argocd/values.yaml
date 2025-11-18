@@ -31,6 +31,7 @@ server:
     annotations:
       traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
       cert-manager.io/cluster-issuer: "http-01-issuer"
+    tls: true
 
 applicationSet:
   replicas: 2
