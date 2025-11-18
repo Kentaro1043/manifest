@@ -6,11 +6,7 @@ helmCharts:
     namespace: argocd
     includeCRDs: true
     additionalValuesFiles:
-      - ./additional-values.yaml
-
-resources:
-  - ./ingress-route.yaml
-  - ./certificate.yaml
+      - ./values.yaml
 
 generators:
   - ./ksops.yaml

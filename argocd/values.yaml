@@ -26,11 +26,11 @@ server:
       name: http-01-issuer
       kind: ClusterIssuer
   ingress:
-    enabled: false
+    enabled: true
     ingressClassName: traefik
     annotations:
       traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-    tls: true
+      cert-manager.io/cluster-issuer: "http-01-issuer"
 
 applicationSet:
   replicas: 2
