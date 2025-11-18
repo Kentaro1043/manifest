@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argo-workflows
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+    traefik.ingress.kubernetes.io/router.middlewares: "argo-auth@kubernetescrd"
+    cert-manager.io/cluster-issuer: "http-01-issuer"
+
+spec:
+  rules:
+    - host: argo.kentaro1043.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: argo-workflows-server
+                port:
+                  number: 2746
+  tls:
+    - hosts:
+        - argo.kentaro1043.com
+      secretName: argo-workflows-tls
