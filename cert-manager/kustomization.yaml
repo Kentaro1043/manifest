@@ -1,3 +1,6 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
 helmCharts:
   - name: cert-manager
     repo: https://charts.jetstack.io
@@ -5,7 +8,7 @@ helmCharts:
     version: v1.18.2
     namespace: cert-manager
     additionalValuesFiles:
-      - ./additional-values.yaml
+      - ./values.yaml
 
 resources:
   - ./http-01-issuer-staging.yaml
