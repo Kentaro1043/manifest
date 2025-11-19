@@ -5,7 +5,9 @@ deployment:
 
 ports:
   handscale:
-    address: ":9090/udp"
+    port: 9090
+    protocol: UDP
+    exposedPort: 9090
 
 ingressRoute:
   dashboard:
