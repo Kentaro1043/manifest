@@ -7,8 +7,7 @@ helmCharts:
     releaseName: cert-manager
     version: v1.18.2
     namespace: cert-manager
-    additionalValuesFiles:
-      - ./values.yaml
+    valuesFile: ./values.yaml
 
 resources:
   - ./http-01-issuer-staging.yaml
