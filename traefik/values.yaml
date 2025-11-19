@@ -3,6 +3,10 @@
 deployment:
   kind: DaemonSet
 
+ports:
+  handscale:
+    address: ":9090/udp"
+
 ingressRoute:
   dashboard:
     enabled: true
