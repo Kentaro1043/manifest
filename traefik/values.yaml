@@ -8,6 +8,8 @@ ports:
     port: 9090
     protocol: UDP
     exposedPort: 9090
+    expose:
+      default: true
 
 ingressRoute:
   dashboard:
