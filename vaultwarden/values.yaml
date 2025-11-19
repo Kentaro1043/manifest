@@ -19,6 +19,7 @@ ingress:
     cert-manager.io/cluster-issuer: "http-01-issuer"
   tls: true
   hostname: vw.kentaro1043.com
+  tlsSecret: vaultwarden-tls
 
 data:
   size: 1Gi
