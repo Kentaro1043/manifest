@@ -11,7 +11,14 @@ service:
       timeoutSeconds: 10800
 
 ingress:
-  enabled: false
+  enabled: true
+  class: traefik
+  nginxIngressAnnotations: false
+  additionalAnnotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+    cert-manager.io/cluster-issuer: "http-01-issuer"
+  tls: true
+  hostname: vw.kentaro1043.com
 
 data:
   size: 1Gi

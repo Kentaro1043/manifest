@@ -7,12 +7,7 @@ helmCharts:
     version: 0.34.4
     releaseName: vaultwarden
     namespace: vaultwarden
-    additionalValuesFiles:
-      - ./additional-values.yaml
-
-resources:
-  - ./ingress-route.yaml
-  - ./certificate.yaml
+    valuesFile: ./values.yaml
 
 generators:
   - ./ksops.yaml
