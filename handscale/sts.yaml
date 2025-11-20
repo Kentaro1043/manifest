@@ -28,6 +28,10 @@ spec:
               mountPath: /var/lib/headscale
             - name: run
               mountPath: /var/run/headscale
+        - name: ui
+          image: ghcr.io/gurucomputing/headscale-ui:2025.08.23
+          ports:
+            - containerPort: 8080
 
       volumes:
         - name: config
