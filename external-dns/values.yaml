@@ -8,7 +8,7 @@ txtPrefix: owner-
 domainFilters:
   - kentaro1043.com
 
-source:
+sources:
   - service
   - ingress
   - crd
