@@ -1,5 +1,5 @@
 ---
-server_url: https://handscale.kentaro1043.com
+server_url: https://headscale.kentaro1043.com
 
 listen_addr: 0.0.0.0:8080
 

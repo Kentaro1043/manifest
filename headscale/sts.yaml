@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: handscale
+  name: headscale
 spec:
   selector:
     matchLabels:
-      app: handscale
-  serviceName: handscale
+      app: headscale
+  serviceName: headscale
   replicas: 1
   template:
     metadata:
       labels:
-        app: handscale
+        app: headscale
     spec:
       containers:
-        - name: handscale
+        - name: headscale
           image: docker.io/headscale/headscale:v0.27.1@sha256:cd37b30018575fd62f18419138d4e526bcf894e1d4e1aa1b08699cec1891ac23
           args: ["serve"]
           ports:
@@ -37,10 +37,10 @@ spec:
       volumes:
         - name: config
           configMap:
-            name: handscale-config
+            name: headscale-config
         - name: oidc-client-secret
           secret:
-            secretName: handscale-client-secret
+            secretName: headscale-client-secret
 
   volumeClaimTemplates:
     - metadata:

@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: handscale
+  name: headscale
 spec:
   selector:
-    app: handscale
+    app: headscale
   ports:
     - name: http
       port: 8080
@@ -14,10 +14,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: handscale-ui
+  name: headscale-ui
 spec:
   selector:
-    app: handscale-ui
+    app: headscale-ui
   ports:
     - name: http
       port: 8080

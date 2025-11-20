@@ -8,7 +8,7 @@ resources:
   - ingress.yaml
 
 configMapGenerator:
-  - name: handscale-config
+  - name: headscale-config
     files:
       - config.yaml=config/config.yaml
 

@@ -17,7 +17,7 @@ spec:
           - path: "argocd"
           - path: "cert-manager"
           - path: "grafana-k8s-monitoring-app"
-          - path: "handscale"
+          - path: "headscale"
           - path: "nfs"
           - path: "traefik"
           - path: "vaultwarden"
