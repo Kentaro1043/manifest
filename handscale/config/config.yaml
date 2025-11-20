@@ -90,8 +90,8 @@ oidc:
   expiry: 0
 
   issuer: "https://q.trap.jp"
-  client_id: "${CLIENT_ID}"
-  client_secret: ${CLIENT_SECRET}
+  client_id: "tyktdvrYyHmUxBOwHjLcGgtqiHYyM1NLVqS2"
+  client_secret_path: "/oidc-client-secret"
   scope:
     - openid
     - profile

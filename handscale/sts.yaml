@@ -20,13 +20,14 @@ spec:
           ports:
             - name: http
               containerPort: 8080
-          envFrom:
-            - secretRef:
-                name: handscale-oidc
           volumeMounts:
             - name: config
               subPath: config.yaml
               mountPath: /etc/headscale/config.yaml
+              readOnly: true
+            - name: oidc-client-secret
+              subPath: client-secret
+              mountPath: /oidc-client-secret
               readOnly: true
             - name: lib
               mountPath: /var/lib/headscale
@@ -37,6 +38,9 @@ spec:
         - name: config
           configMap:
             name: handscale-config
+        - name: oidc-client-secret
+          secret:
+            secretName: handscale-client-secret
 
   volumeClaimTemplates:
     - metadata:

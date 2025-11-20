@@ -7,4 +7,4 @@ metadata:
       exec:
         path: ksops
 files:
-  - ./secrets/oidc.enc.yaml
+  - ./secrets/client-secret.enc.yaml
