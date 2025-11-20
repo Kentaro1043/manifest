@@ -18,7 +18,8 @@ spec:
           image: docker.io/headscale/headscale:v0.27.1@sha256:cd37b30018575fd62f18419138d4e526bcf894e1d4e1aa1b08699cec1891ac23
           args: ["serve"]
           ports:
-            - containerPort: 8080
+            - name: http
+              containerPort: 8080
           volumeMounts:
             - name: config
               subPath: config.yaml
@@ -28,10 +29,6 @@ spec:
               mountPath: /var/lib/headscale
             - name: run
               mountPath: /var/run/headscale
-        - name: ui
-          image: ghcr.io/gurucomputing/headscale-ui:2025.08.23
-          ports:
-            - containerPort: 8080
 
       volumes:
         - name: config

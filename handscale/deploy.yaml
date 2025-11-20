@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deplooyment
+metadata:
+  name: handscale-ui
+spec:
+  selector:
+    matchLabels:
+      app: handscale-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: handscale-ui
+    spec:
+      containers:
+        - name: handscale-ui
+          image: ghcr.io/gurucomputing/headscale-ui:2025.08.23
+          ports:
+            - name: http
+              containerPort: 8080
