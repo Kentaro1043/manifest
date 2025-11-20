@@ -1,5 +1,5 @@
 ---
-server_url: https://headscale.example.com:443
+server_url: https://headscale.kentaro1043.com:443
 
 listen_addr: 0.0.0.0:8080
 
