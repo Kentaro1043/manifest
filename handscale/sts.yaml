@@ -20,6 +20,9 @@ spec:
           ports:
             - name: http
               containerPort: 8080
+          envFrom:
+            - secretRef:
+                name: handscale-client-secret
           volumeMounts:
             - name: config
               subPath: config.yaml
