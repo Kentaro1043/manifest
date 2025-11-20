@@ -7,5 +7,10 @@ resources:
   - svc.yaml
   - ingress.yaml
 
+configMapGenerator:
+  - name: handscale-config
+    files:
+      - config.yaml=config/config.yaml
+
 generators:
   - ksops.yaml
