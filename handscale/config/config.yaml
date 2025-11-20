@@ -1,5 +1,5 @@
 ---
-server_url: https://handscale.kentaro1043.com:443
+server_url: https://handscale.kentaro1043.com
 
 listen_addr: 0.0.0.0:8080
 
@@ -90,7 +90,7 @@ oidc:
   expiry: 0
 
   issuer: "https://q.trap.jp"
-  client_id: "handscale"
+  client_id: "${CLIENT_ID}"
   client_secret: ${CLIENT_SECRET}
   scope:
     - openid

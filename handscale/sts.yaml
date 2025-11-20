@@ -22,7 +22,7 @@ spec:
               containerPort: 8080
           envFrom:
             - secretRef:
-                name: handscale-client-secret
+                name: handscale-oidc
           volumeMounts:
             - name: config
               subPath: config.yaml
