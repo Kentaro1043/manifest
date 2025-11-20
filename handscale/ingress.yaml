@@ -19,4 +19,9 @@ spec:
               service:
                 name: handscale
                 port:
-                  name: http
+                  name: http]
+
+  tls:
+    - hosts:
+        - handscale.kentaro1043.com
+      secretName: handscale-tls
