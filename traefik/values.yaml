@@ -28,6 +28,7 @@ providers:
 service:
   annotations:
     oci.oraclecloud.com/load-balancer-type: "nlb"
+    oci-network-load-balancer.oraclecloud.com/external-ip-only: "true"
   spec:
     externalTrafficPolicy: Local
 
