@@ -23,7 +23,7 @@ spec:
           volumeMounts:
             - name: config
               subPath: config.yaml
-              mountPath: /etc/headscale
+              mountPath: /etc/headscale/config.yaml
               readOnly: true
             - name: lib
               mountPath: /var/lib/headscale
