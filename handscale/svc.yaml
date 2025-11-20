@@ -6,7 +6,9 @@ spec:
   selector:
     app: handscale
   ports:
-    - port: 8080
+    - name: http
+      port: 8080
       targetPort: 8080
-    - port: 9090
+    - name: vpn
+      port: 9090
       targetPort: 9090
