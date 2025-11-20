@@ -33,7 +33,7 @@ spec:
       volumes:
         - name: config
           configMap:
-            name: handscale-confi
+            name: handscale-config
 
   volumeClaimTemplates:
     - metadata:
