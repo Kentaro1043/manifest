@@ -19,7 +19,6 @@ spec:
           args: ["serve"]
           ports:
             - containerPort: 8080
-            - containerPort: 9090
           volumeMounts:
             - name: config
               subPath: config.yaml
