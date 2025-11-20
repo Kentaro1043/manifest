@@ -4,6 +4,7 @@ provider:
   name: cloudflare
 policy: sync
 txtOwnerId: oke-cluster
+txtPrefix: owner-
 domainFilters:
   - kentaro1043.com
 
