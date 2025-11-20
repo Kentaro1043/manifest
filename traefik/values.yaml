@@ -6,6 +6,8 @@ deployment:
 ingressRoute:
   dashboard:
     enabled: true
+    annotations:
+      external-dns.alpha.kubernetes.io/hostname: "traefik.kentaro1043.com"
     matchRule: Host(`traefik.kentaro1043.com`)
     entryPoints:
       - websecure
@@ -13,6 +15,8 @@ ingressRoute:
       secretName: traefik-tls
   healthcheck:
     enabled: true
+    annotations:
+      external-dns.alpha.kubernetes.io/hostname: "traefik.kentaro1043.com"
     matchRule: Host(`traefik.kentaro1043.com`) && PathPrefix(`/ping`)
     entryPoints:
       - websecure
