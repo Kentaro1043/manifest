@@ -17,6 +17,7 @@ ingress:
   additionalAnnotations:
     traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
     cert-manager.io/cluster-issuer: "http-01-issuer"
+    external-dns.alpha.kubernetes.io/hostname: "vw.kentaro1043.com"
   tls: true
   hostname: vw.kentaro1043.com
   tlsSecret: vaultwarden-tls
