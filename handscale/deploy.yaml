@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deplooyment
+kind: Deployment
 metadata:
   name: handscale-ui
 spec:
@@ -18,3 +18,10 @@ spec:
           ports:
             - name: http
               containerPort: 8080
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "200m"
