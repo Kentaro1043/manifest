@@ -8,7 +8,7 @@ env:
     valueFrom:
       secretKeyRef:
         name: cloudflare-api-key
-        key: api-Key
+        key: api-key
 
 resources:
   requests:
