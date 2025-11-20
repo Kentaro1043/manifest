@@ -8,6 +8,12 @@ txtPrefix: owner-
 domainFilters:
   - kentaro1043.com
 
+source:
+  - service
+  - ingress
+  - crd
+  - traefik-proxy
+
 env:
   - name: CF_API_TOKEN
     valueFrom:
