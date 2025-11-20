@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: handscale
+  labels:
+    app.kubernetes.io/name: handscale
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    cert-manager.io/cluster-issuer: "http-01-issuer"
+
+spec:
+  rules:
+    - host: handscale.kentaro1043.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: handscale
+                port:
+                  number: 8080

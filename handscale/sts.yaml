@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: handscale
+spec:
+  selector:
+    matchLabels:
+      app: handscale
+  serviceName: handscale
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: handscale
+    spec:
+      containers:
+        - name: handscale
+          image: docker.io/headscale/headscale:v0.27.1
+          ports:
+            - containerPort: 8080
+            - containerPort: 9090
