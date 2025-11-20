@@ -20,3 +20,33 @@ spec:
           ports:
             - containerPort: 8080
             - containerPort: 9090
+          volumeMounts:
+            - name: config
+              mountPath: /etc/headscale
+              readOnly: true
+            - name: lib
+              mountPath: /var/lib/headscale
+            - name: run
+              mountPath: /var/run/headscale
+
+      volumes:
+        - name: config
+          configMap:
+            name: handscale-config
+            subPath: config.yaml
+
+  volumeClaimTemplates:
+    - metadata:
+        name: lib
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 1Gi
+    - metadata:
+        name: run
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 512Mi

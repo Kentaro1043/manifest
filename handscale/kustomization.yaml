@@ -5,3 +5,8 @@ resources:
   - sts.yaml
   - svc.yaml
   - ingress.yaml
+
+configMapGenerator:
+  - name: handscale-config
+    files:
+      - config.yaml=config/config.yaml
