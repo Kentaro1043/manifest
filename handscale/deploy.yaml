@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: handscale-ui
-          image: ghcr.io/gurucomputing/headscale-ui:2025.08.23
+          image: ghcr.io/gurucomputing/headscale-ui:2025.08.23@sha256:d86943ae41059367f930c9794f7eddaf321823336184a3b8e1a08e9a4baac870
           ports:
             - name: http
               containerPort: 8080
