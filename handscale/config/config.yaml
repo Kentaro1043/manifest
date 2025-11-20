@@ -85,16 +85,16 @@ dns:
 unix_socket: /var/run/headscale/headscale.sock
 unix_socket_permission: "0770"
 
-oidc:
-  only_start_if_oidc_is_available: true
-  expiry: 0
-
-  issuer: "https://q.trap.jp"
-  client_id: "tyktdvrYyHmUxBOwHjLcGgtqiHYyM1NLVqS2"
-  client_secret_path: "/oidc-client-secret"
-  scope:
-    - openid
-    - profile
+#oidc:
+#  only_start_if_oidc_is_available: true
+#  expiry: 0
+#
+#  issuer: "https://q.trap.jp"
+#  client_id: "tyktdvrYyHmUxBOwHjLcGgtqiHYyM1NLVqS2"
+#  client_secret_path: "/oidc-client-secret"
+#  scope:
+#    - openid
+#    - profile
 
 logtail:
   enabled: false
