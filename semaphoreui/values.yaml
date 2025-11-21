@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=https://github.com/semaphoreui/charts/raw/refs/heads/main/stable/semaphore/values.schema.json
+
+admin:
+  existingSecret: semaphore-admin
+  emailKey: email
+  usernameKey: username
+  fullnameKey: fullname
+  passwordKey: password
+
+email:
+  alert: true
+
+  host: smtp.gmail.com
+  port: 587
+  sender: service@kentaro1043.com
+  existingSecret: semaphore-email
+  usernameKey: username
+  passwordKey: password
+
+database:
+  type: postgres
+  host: private.oci.kentaro1043.com
+  port: 5432
+  username: semaphoreui
+  usernameFromSecret: false
+  name: semaphoreui
+
+  existingSecret: semaphore-db
+  passwordKey: password
+
+ingress:
+  enabled: true
+  hostname: semaphoreui.kentaro1043.com
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    cert-manager.io/cluster-issuer: "http-01-issuer"
+  hosts:
+    - host: semaphoreui.kentaro1043.com
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - hosts:
+        - semaphoreui.kentaro1043.com
+      secretName: semaphoreui-tls
