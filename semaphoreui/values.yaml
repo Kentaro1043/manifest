@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://github.com/semaphoreui/charts/raw/refs/heads/main/stable/semaphore/values.schema.json
 
 admin:
+  create: true
   existingSecret: semaphore-admin
   emailKey: email
   usernameKey: username
