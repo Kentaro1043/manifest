@@ -24,6 +24,8 @@ spec:
               npm start
           env:
             - name: ALLOWLIST_URLS
+              value: ""
+            - name: BLOCKLIST_URLS
               value: |
                 https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_15_DnsFilter/filter.txt
           envFrom:
