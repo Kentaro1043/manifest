@@ -8,3 +8,5 @@ nameReference:
         path: spec/basicAuth/secret
       - kind: ClusterWorkflowTemplate
         path: spec/templates[]/container/env[]/valueFrom/secretKeyRef/name
+      - kind: ClusterWorkflowTemplate
+        path: spec/templates[]/container/envFrom[]/secretRef/name
