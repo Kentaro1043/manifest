@@ -9,4 +9,4 @@ nameReference:
       - kind: ClusterWorkflowTemplate
         path: spec/templates[]/container/env[]/valueFrom/secretKeyRef/name
       - kind: CronWorkflow
-        path: spec/templates[]/container/envFrom[]/secretRef/name
+        path: spec/workflowSpec/templates[]/container/envFrom[]/secretRef/name
