@@ -13,23 +13,21 @@ spec:
     serviceAccountName: argo-workflow
     templates:
       - name: cgps
-        steps:
-          - - name: cgps
-              container:
-                image: ghcr.io/mrrfv/cloudflare-gateway-pihole-scripts:main@sha256:dbcfe9f6f33bce8981276d4b21a7d1af8b00e4fb2fb912ceacfda8b71dda5917
-                command: ["sh", "-c"]
-                args:
-                  - |
-                    #!/bin/sh
-                    set -eux
+        container:
+          image: ghcr.io/mrrfv/cloudflare-gateway-pihole-scripts:main@sha256:dbcfe9f6f33bce8981276d4b21a7d1af8b00e4fb2fb912ceacfda8b71dda5917
+          command: ["sh", "-c"]
+          args:
+            - |
+              #!/bin/sh
+              set -eux
 
-                    npm start
-                env:
-                  - name: ALLOWLIST_URLS
-                    value: |
-                      https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_15_DnsFilter/filter.txt
-                envFrom:
-                  - secretRef:
-                      name: cgps-credentials
-                  - secretRef:
-                      name: cgps-discord-webhook
+              npm start
+          env:
+            - name: ALLOWLIST_URLS
+              value: |
+                https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_15_DnsFilter/filter.txt
+          envFrom:
+            - secretRef:
+                name: cgps-credentials
+            - secretRef:
+                name: cgps-discord-webhook
