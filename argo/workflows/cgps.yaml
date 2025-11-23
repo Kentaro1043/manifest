@@ -16,7 +16,7 @@ spec:
         steps:
           - - name: cgps
               container:
-                image: ghcr.io/mrrfv/cloudflare-gateway-pihole-scripts:main
+                image: ghcr.io/mrrfv/cloudflare-gateway-pihole-scripts:main@sha256:dbcfe9f6f33bce8981276d4b21a7d1af8b00e4fb2fb912ceacfda8b71dda5917
                 command: ["sh", "-c"]
                 args:
                   - |
