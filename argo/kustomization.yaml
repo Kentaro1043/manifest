@@ -18,6 +18,7 @@ resources:
   - middleware.yaml
 
   - workflows/discord-notification.yaml
+  - workflows/cgps.yaml
 
 generators:
   - ksops.yaml

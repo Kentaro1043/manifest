@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: CronWorkflow
+metadata:
+  name: cgps
+  generateName: cgps-
+
+spec:
+  schedule: "0 3 * * *"
+  timezone: Asia/Tokyo
+  concurrencyPolicy: "Forbid"
+  workflowSpec:
+    entrypoint: cgps
+    serviceAccountName: argo-workflow
+    templates:
+      - name: cgps
+        steps:
+          - - name: cgps
+              container:
+                image: ghcr.io/mrrfv/cloudflare-gateway-pihole-scripts:main
+                command: ["sh", "-c"]
+                args:
+                  - |
+                    #!/bin/sh
+                    set -eux
+
+                    npm start
+                env:
+                  - name: ALLOWLIST_URLS
+                    value: |
+                      https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_15_DnsFilter/filter.txt
+                envFrom:
+                  - secretRef:
+                      name: cgps-credentials
+                  - secretRef:
+                      name: cgps-discord-webhook

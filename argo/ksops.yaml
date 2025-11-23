@@ -9,3 +9,5 @@ metadata:
 files:
   - ./secrets/basic-auth.enc.yaml
   - ./secrets/discord-webhook.enc.yaml
+  - ./secrets/cgps-api-token.enc.yaml
+  - ./secrets/cgps-discord-webhook.enc.yaml
