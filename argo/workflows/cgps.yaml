@@ -24,7 +24,14 @@ spec:
               npm start
           env:
             - name: ALLOWLIST_URLS
-              value: ""
+              value: |
+                https://raw.githubusercontent.com/AdguardTeam/HttpsExclusions/master/exclusions/banks.txt
+                https://raw.githubusercontent.com/AdguardTeam/HttpsExclusions/master/exclusions/mac.txt
+                https://raw.githubusercontent.com/AdguardTeam/HttpsExclusions/master/exclusions/windows.txt
+                https://raw.githubusercontent.com/AdguardTeam/HttpsExclusions/master/exclusions/firefox.txt
+                https://raw.githubusercontent.com/AdguardTeam/HttpsExclusions/master/exclusions/android.txt
+                https://raw.githubusercontent.com/AdguardTeam/AdGuardSDNSFilter/master/Filters/exclusions.txt
+                https://raw.githubusercontent.com/AdguardTeam/HttpsExclusions/master/exclusions/issues.txt
             - name: BLOCKLIST_URLS
               value: |
                 https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_15_DnsFilter/filter.txt
