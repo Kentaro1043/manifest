@@ -13,3 +13,9 @@ resources:
   # CRD
   - https://raw.githubusercontent.com/cloudflare/origin-ca-issuer/v0.13.0/deploy/crds/cert-manager.k8s.cloudflare.com_originissuers.yaml
   - https://raw.githubusercontent.com/cloudflare/origin-ca-issuer/v0.13.0/deploy/crds/cert-manager.k8s.cloudflare.com_clusteroriginissuers.yaml
+
+  # Issuer
+  - ./cloudflare-origin-issuer.yaml
+
+generators:
+  - ksops.yaml
