@@ -6,6 +6,9 @@ deployment:
 ingressRoute:
   dashboard:
     enabled: true
+    annotations:
+      external-dns.alpha.kubernetes.io/target: "traefik.kentaro1043.com"
+      kubernetes.io/ingress.class: traefik
     matchRule: Host(`traefik.kentaro1043.com`)
     entryPoints:
       - websecure
