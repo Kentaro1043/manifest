@@ -12,6 +12,8 @@ ingressRoute:
     matchRule: Host(`traefik.kentaro1043.com`)
     entryPoints:
       - websecure
+    middlewares:
+      - name: traefik-dashboard-auth
     tls:
       secretName: traefik-tls
   healthcheck:
@@ -19,6 +21,8 @@ ingressRoute:
     matchRule: Host(`traefik.kentaro1043.com`) && PathPrefix(`/ping`)
     entryPoints:
       - websecure
+    middlewares:
+      - name: traefik-dashboard-auth
     tls:
       secretName: traefik-tls
 
