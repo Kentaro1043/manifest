@@ -20,6 +20,7 @@ spec:
           - path: "grafana-k8s-monitoring-app"
           - path: "headscale"
           - path: "nfs"
+          - path: "origin-ca-issuer"
           - path: "semaphoreui"
           - path: "traefik"
           - path: "vaultwarden"

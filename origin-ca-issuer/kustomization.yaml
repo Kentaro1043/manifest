@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+helmCharts:
+  - name: origin-ca-issuer
+    repo: oci://ghcr.io/cloudflare/origin-ca-issuer-charts
+    releaseName: origin-ca-issuer
+    version: 0.6.1
+    namespace: origin-ca-issuer
+    valuesFile: ./values.yaml
+
+resources:
+  # CRD
+  - https://raw.githubusercontent.com/cloudflare/origin-ca-issuer/v0.13.0/deploy/crds/cert-manager.k8s.cloudflare.com_originissuers.yaml
