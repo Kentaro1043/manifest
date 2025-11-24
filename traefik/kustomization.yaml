@@ -12,4 +12,7 @@ helmCharts:
 
 resources:
   - ./certificate.yaml
-#  - ./metrics-ingress-route.yaml
+  - ./middlewares/dashboard.yaml
+
+generators:
+  - ksops.yaml
