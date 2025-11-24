@@ -15,8 +15,8 @@ sources:
   - traefik-proxy
 
 extraArgs:
-  - cloudflare-proxied
-  - cloudflare-record-comment="external-dns"
+  - --cloudflare-proxied
+  - --cloudflare-record-comment="external-dns"
 
 env:
   - name: CF_API_TOKEN
