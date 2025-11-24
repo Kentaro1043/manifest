@@ -7,7 +7,6 @@ metadata:
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     cert-manager.io/cluster-issuer: "http-01-issuer"
-    external-dns.alpha.kubernetes.io/hostname: "headscale.kentaro1043.com"
 
 spec:
   rules:
