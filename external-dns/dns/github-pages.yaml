@@ -11,6 +11,9 @@ spec:
         - 185.199.109.153
         - 185.199.110.153
         - 185.199.111.153
+      providerSpecific:
+        - name: cloudflare-proxied
+          value: "false"
     - dnsName: "kentaro1043.com"
       recordType: AAAA
       targets:
@@ -18,7 +21,13 @@ spec:
         - 2606:50c0:8001::153
         - 2606:50c0:8002::153
         - 2606:50c0:8003::153
+      providerSpecific:
+        - name: cloudflare-proxied
+          value: "false"
     - dnsName: "www.kentaro1043.com"
       recordType: CNAME
       targets:
         - "kentaro1043.github.io"
+      providerSpecific:
+        - name: cloudflare-proxied
+          value: "false"
