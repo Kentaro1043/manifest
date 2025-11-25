@@ -10,5 +10,8 @@ helmCharts:
     includeCRDs: true
     valuesFile: ./values.yaml
 
+resources:
+  - dns/github-pages.yaml
+
 generators:
   - ksops.yaml
