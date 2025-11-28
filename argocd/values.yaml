@@ -9,17 +9,17 @@ controller:
       cpu: "50m"
     limits:
       memory: "512Mi"
-      cpu: "200m"
+      cpu: "250m"
 
 server:
   replicas: 2
   resources:
     requests:
       memory: "256Mi"
-      cpu: "50m"
+      cpu: "10m"
     limits:
       memory: "512Mi"
-      cpu: "100m"
+      cpu: "50m"
   certificate:
     enabled: false
     issuer:
@@ -40,10 +40,10 @@ applicationSet:
   resources:
     requests:
       memory: "256Mi"
-      cpu: "50m"
+      cpu: "10m"
     limits:
       memory: "512Mi"
-      cpu: "100m"
+      cpu: "50m"
 
 redis-ha:
   enabled: false
@@ -73,10 +73,10 @@ repoServer:
   resources:
     requests:
       memory: "256Mi"
-      cpu: "50m"
+      cpu: "10m"
     limits:
       memory: "512Mi"
-      cpu: "150m"
+      cpu: "50m"
   env:
     # ksops & helm-secrets
     - name: XDG_CONFIG_HOME
@@ -219,19 +219,19 @@ dex:
   resources:
     requests:
       memory: "128Mi"
-      cpu: "50m"
+      cpu: "10m"
     limits:
       memory: "256Mi"
-      cpu: "100m"
+      cpu: "50m"
 
 notifications:
   resources:
     requests:
       memory: "128Mi"
-      cpu: "50m"
+      cpu: "10m"
     limits:
       memory: "256Mi"
-      cpu: "100m"
+      cpu: "50m"
 
   secret:
     create: false
