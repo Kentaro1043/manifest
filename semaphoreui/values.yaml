@@ -1,5 +1,8 @@
 # yaml-language-server: $schema=https://github.com/semaphoreui/charts/raw/refs/heads/main/stable/semaphore/values.schema.json
 
+image:
+  repository: docker.io/semaphoreui/semaphore
+
 admin:
   create: true
   existingSecret: semaphore-admin

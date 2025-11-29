@@ -1,3 +1,6 @@
+image:
+  repository: docker.io/cloudflare/origin-ca-issuer
+
 controller:
   resources:
     limits:
