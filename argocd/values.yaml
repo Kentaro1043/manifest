@@ -143,7 +143,7 @@ repoServer:
 
     # helm-secrets installation
     - name: install-helm-secrets
-      image: alpine:latest@sha256:4b7ce07002c69e8f3d704a9c5d6fd3053be500b7f1c69fc0d80990c2ad8dd412
+      image: docker.io/alpine:latest@sha256:4b7ce07002c69e8f3d704a9c5d6fd3053be500b7f1c69fc0d80990c2ad8dd412
       imagePullPolicy: IfNotPresent
       command: [sh, -ec]
       env:
