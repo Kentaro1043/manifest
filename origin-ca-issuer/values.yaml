@@ -1,7 +1,6 @@
-image:
-  repository: docker.io/cloudflare/origin-ca-issuer
-
 controller:
+  image:
+    repository: docker.io/cloudflare/origin-ca-issuer
   resources:
     limits:
       cpu: 200m
