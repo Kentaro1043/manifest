@@ -14,7 +14,7 @@ spec:
     templates:
       - name: cgps
         container:
-          image: ghcr.io/mrrfv/cloudflare-gateway-pihole-scripts:main@sha256:dbcfe9f6f33bce8981276d4b21a7d1af8b00e4fb2fb912ceacfda8b71dda5917
+          image: ghcr.io/mrrfv/cloudflare-gateway-pihole-scripts:main@sha256:769e62ed5986602c6bb78225e5778344dfcf181ebac49757bf08ceff6c5298c5
           command: ["sh", "-c"]
           args:
             - |
