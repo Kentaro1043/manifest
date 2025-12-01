@@ -5,7 +5,7 @@ helmCharts:
   - name: origin-ca-issuer
     repo: oci://ghcr.io/cloudflare/origin-ca-issuer-charts
     releaseName: origin-ca-issuer
-    version: 0.6.1
+    version: 0.6.2
     namespace: origin-ca-issuer
     valuesFile: ./values.yaml
 
