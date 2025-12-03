@@ -68,6 +68,14 @@ configs:
     # GitHub webhook secret
     webhook.github.secret: $github-webhook-secret:secret
 
+    # traQ OIDC settings
+    oidc.config: |
+      name: traQ
+      issuer: https://q.trap.jp
+      clientID: PZkwSqicPHziQkagvJBIE4KQYTMEa8F775Kw
+      clientSecret: $traq-oidc-client:secret
+      requestedScopes: ["openid", "read", "profile"]
+
 repoServer:
   replicas: 2
   resources:
