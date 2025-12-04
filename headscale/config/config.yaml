@@ -89,8 +89,8 @@ oidc:
   only_start_if_oidc_is_available: true
   expiry: 30d
 
-  issuer: "https://q-dev.trapti.tech"
-  client_id: HUDhPGdZ2TMAzPCzWCGudeToe0begO5qMBkh
+  issuer: "https://q.trap.jp"
+  client_id: tyktdvrYyHmUxBOwHjLcGgtqiHYyM1NLVqS2
   client_secret_path: "/oidc-client-secret"
   scope:
     - openid
