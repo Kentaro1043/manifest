@@ -21,7 +21,7 @@ spec:
               service:
                 name: pds
                 port:
-                  number: 3000
+                  number: 2583
   tls:
     - hosts:
         - pds.kentaro1043.com
@@ -50,7 +50,7 @@ spec:
               service:
                 name: pds
                 port:
-                  number: 3000
+                  number: 2583
   tls:
     - hosts:
         - "*.pds.kentaro1043.com"

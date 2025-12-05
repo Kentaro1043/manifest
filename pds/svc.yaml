@@ -6,5 +6,5 @@ spec:
   selector:
     app: pds
   ports:
-    - port: 3000
-      targetPort: 3000
+    - port: 2583
+      targetPort: 2583
