@@ -1,6 +1,13 @@
 server:
   authModes:
     - server
+  resources:
+    requests:
+      memory: "32Mi"
+      cpu: "10m"
+    limits:
+      memory: "48Mi"
+      cpu: "20m"
 
 workflow:
   serviceAccount:
@@ -23,10 +30,10 @@ controller:
                   template: send-discord-notification
   resources:
     requests:
-      memory: "128Mi"
-      cpu: "50m"
+      memory: "36Mi"
+      cpu: "10m"
     limits:
-      memory: "256Mi"
-      cpu: "100m"
+      memory: "72Mi"
+      cpu: "20m"
 
   workflowNamespaces: []
