@@ -8,4 +8,3 @@ metadata:
         path: ksops
 files:
   - ./secrets/webhook-url.enc.yaml
-  - ./secrets/traq-oidc-secret.enc.yaml
