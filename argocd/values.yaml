@@ -6,10 +6,10 @@ controller:
   resources:
     requests:
       memory: "512Mi"
-      cpu: "100m"
+      cpu: "150m"
     limits:
       memory: "512Mi"
-      cpu: "100m"
+      cpu: "150m"
 
 server:
   replicas: 2
@@ -82,10 +82,10 @@ repoServer:
   resources:
     requests:
       memory: "128Mi"
-      cpu: "30m"
+      cpu: "40m"
     limits:
       memory: "256Mi"
-      cpu: "60m"
+      cpu: "80m"
   env:
     # ksops & helm-secrets
     - name: XDG_CONFIG_HOME
