@@ -1,7 +1,15 @@
 domain: https://vw.kentaro1043.com
 
-resourceType: Deployment
+resourceType: StatefulSet
 replicas: 1
+
+resources:
+  requests:
+    memory: "256Mi"
+    cpu: "10m"
+  limits:
+    memory: "256Mi"
+    cpu: "20m"
 
 # HA settings
 service:
