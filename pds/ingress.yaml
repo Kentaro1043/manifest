@@ -1,0 +1,49 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pds
+  labels:
+    app.kubernetes.io/name: pds
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+    cert-manager.io/issuer: "cloudflare-origin-issuer"
+    cert-manager.io/issuer-kind: ClusterOriginIssuer
+    cert-manager.io/issuer-group: cert-manager.k8s.cloudflare.com
+
+spec:
+  rules:
+    - host: pds.kentaro1043.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: pds
+                port:
+                  number: 3000
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pds-wildcard
+  labels:
+    app.kubernetes.io/name: pds
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    cert-manager.io/cluster-issuer: "dns-01-issuer"
+    external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
+
+spec:
+  rules:
+    - host: "*.pds.kentaro1043.com"
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: pds
+                port:
+                  number: 3000

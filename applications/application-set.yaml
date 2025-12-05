@@ -21,6 +21,7 @@ spec:
           - path: "headscale"
           - path: "nfs"
           - path: "origin-ca-issuer"
+          - path: "pds"
           - path: "traefik"
           - path: "vaultwarden"
 
