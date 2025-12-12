@@ -63,7 +63,7 @@ spec:
             - name: N8N_EMAIL_MODE
               value: smtp
             - name: N8N_SMTP_HOST
-              value: smtp.gmail.com
+              value: smtp.resend.com
             - name: N8N_SMTP_PORT
               value: "587"
             - name: N8N_SMTP_SENDER

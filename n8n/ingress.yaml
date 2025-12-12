@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: n8n
+  labels:
+    app.kubernetes.io/name: n8n
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+    cert-manager.io/issuer: "cloudflare-origin-issuer"
+    cert-manager.io/issuer-kind: ClusterOriginIssuer
+    cert-manager.io/issuer-group: cert-manager.k8s.cloudflare.com
+
+spec:
+  rules:
+    - host: n8n.kentaro1043.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: n8n
+                port:
+                  name: http
+
+  tls:
+    - hosts:
+        - n8n.kentaro1043.com
+      secretName: n8n-tls

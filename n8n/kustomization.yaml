@@ -1,8 +1,7 @@
 resources:
   - sts.yaml
-  - service.yaml
-  - ingress-route.yaml
-  - certificate.yaml
+  - svc.yaml
+  - ingress.yaml
   - pv.yaml
   - pvc.yaml
 
