@@ -94,7 +94,7 @@ spec:
               cpu: "20m"
             limits:
               memory: "640Mi"
-              cpu: "40m"
+              cpu: "100m"
 
       volumes:
         - name: n8n-data
