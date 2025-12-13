@@ -6,10 +6,10 @@ controller:
   resources:
     requests:
       memory: "512Mi"
-      cpu: "400m"
+      cpu: "350m"
     limits:
       memory: "512Mi"
-      cpu: "400m"
+      cpu: "350m"
 
 server:
   replicas: 2
