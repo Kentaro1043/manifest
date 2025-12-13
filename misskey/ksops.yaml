@@ -7,4 +7,4 @@ metadata:
       exec:
         path: ksops
 files:
-  - ./secrets/misskey-default-config.enc.yaml
+  - ./secrets/misskey-config.enc.yaml

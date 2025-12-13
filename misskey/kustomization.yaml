@@ -1,7 +1,10 @@
-#resources:
-#  - ./deploy.yaml
-#  - ./svc.yaml
-#  - ./ingress.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ./deploy.yaml
+  - ./svc.yaml
+  - ./ingress.yaml
 
 helmCharts:
   - name: valkey
@@ -10,5 +13,6 @@ helmCharts:
     releaseName: misskey-valkey
     namespace: misskey
     valuesFile: valkey-values.yaml
-#generators:
-#  - ksops.yaml
+
+generators:
+  - ksops.yaml
