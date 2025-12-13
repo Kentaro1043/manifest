@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/valkey-io/valkey-helm/refs/heads/main/valkey/values.schema.json
+
+resources:
+  limits:
+    cpu: "100m"
+    memory: "128Mi"
+  requests:
+    cpu: "50m"
+    memory: "64Mi"
+
+dataStorage:
+  enabled: true
+  requestedSize: 1Gi

@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: misskey
+  labels:
+    app: misskey
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: misskey
+  template:
+    metadata:
+      labels:
+        app: misskey
+    spec:
+      containers:
+        - name: misskey
+          image: misskey/misskey:2025.12.0
+          volumeMounts:
+            - name: misskey-config
+              mountPath: /misskey/.config
+              readOnly: true
+          ports:
+            - containerPort: 3000
+          resources:
+            limits:
+              cpu: "200m"
+              memory: "512Mi"
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+      volumes:
+        - name: misskey-config
+          secret:
+            secretName: misskey-config

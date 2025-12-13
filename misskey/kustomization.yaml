@@ -1,0 +1,14 @@
+#resources:
+#  - ./deploy.yaml
+#  - ./svc.yaml
+#  - ./ingress.yaml
+
+helmCharts:
+  - name: valkey
+    repo: https://valkey.io/valkey-helm
+    version: 9.1.7
+    releaseName: misskey-valkey
+    namespace: misskey
+    valuesFile: valkey-values.yaml
+#generators:
+#  - ksops.yaml
