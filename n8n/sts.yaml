@@ -88,6 +88,14 @@ spec:
             - name: n8n-data
               mountPath: /home/node/.n8n
 
+          resources:
+            requests:
+              memory: "320Mi"
+              cpu: "20m"
+            limits:
+              memory: "640Mi"
+              cpu: "40m"
+
       volumes:
         - name: n8n-data
           persistentVolumeClaim:
