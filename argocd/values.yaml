@@ -152,7 +152,7 @@ repoServer:
 
     # helm-secrets installation
     - name: install-helm-secrets
-      image: docker.io/library/alpine:latest
+      image: docker.io/library/alpine:latest@sha256:51183f2cfa6320055da30872f211093f9ff1d3cf06f39a0bdb212314c5dc7375
       imagePullPolicy: IfNotPresent
       command: [sh, -ec]
       env:
