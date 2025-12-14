@@ -8,10 +8,7 @@
     "group:recommended",
     "replacements:all",
     "workarounds:all",
-    "docker:pinDigests",
-    "helpers:pinGitHubActionDigests",
     ":configMigration",
-    ":pinDevDependencies",
   ],
   platformAutomerge: true,
   ignoreTests: true,
@@ -19,6 +16,11 @@
   automergeType: "branch",
   semanticCommits: "enabled",
   packageRules: [
+    {
+      matchDatasources: ["docker"],
+      matchCurrentValue: "latest",
+      pinDigests: true,
+    },
     {
       description: "Auto merge up to patch",
       automerge: true,
