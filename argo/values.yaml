@@ -6,7 +6,7 @@ server:
       memory: "32Mi"
       cpu: "20m"
     limits:
-      memory: "48Mi"
+      memory: "64Mi"
       cpu: "40m"
 
 workflow:
