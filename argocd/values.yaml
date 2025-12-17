@@ -12,7 +12,7 @@ controller:
       cpu: "300m"
 
 server:
-  replicas: 2
+  replicas: 1
   resources:
     requests:
       memory: "128Mi"
@@ -36,7 +36,7 @@ server:
     tls: true
 
 applicationSet:
-  replicas: 2
+  replicas: 1
   resources:
     requests:
       memory: "64Mi"
@@ -48,10 +48,10 @@ applicationSet:
 redis:
   resources:
     requests:
-      memory: "16Mi"
+      memory: "32Mi"
       cpu: "10m"
     limits:
-      memory: "32Mi"
+      memory: "64Mi"
       cpu: "20m"
 
 redis-ha:
@@ -78,14 +78,14 @@ configs:
     webhook.github.secret: $github-webhook-secret:secret
 
 repoServer:
-  replicas: 2
+  replicas: 1
   resources:
     requests:
       memory: "128Mi"
-      cpu: "40m"
+      cpu: "100m"
     limits:
       memory: "256Mi"
-      cpu: "80m"
+      cpu: "200m"
   env:
     # ksops & helm-secrets
     - name: XDG_CONFIG_HOME
