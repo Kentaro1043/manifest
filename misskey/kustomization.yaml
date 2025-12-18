@@ -9,7 +9,7 @@ resources:
 helmCharts:
   - name: valkey
     repo: https://valkey.io/valkey-helm
-    version: 0.9.1
+    version: 0.9.2
     releaseName: misskey-valkey
     namespace: misskey
     valuesFile: valkey-values.yaml
