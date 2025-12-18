@@ -9,7 +9,7 @@ spec:
   templates:
     - name: send-discord-notification
       container:
-        image: docker.io/library/alpine:3.23.0
+        image: docker.io/library/alpine:3.23.2
         command: ["sh", "-c"]
         args:
           - |
