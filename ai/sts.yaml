@@ -30,7 +30,7 @@ spec:
 
       containers:
         - name: ai
-          image: ghcr.io/kentaro1043/ai-arm64:latest
+          image: ghcr.io/kentaro1043/ai-arm64:latest@sha256:d24bd6bdf47e0e717b5a38f2b37c8ed7dc209f869a1e5cb12cacc682a5615aef
           volumeMounts:
             - mountPath: /ai/data
               name: data
