@@ -1,0 +1,6 @@
+resources:
+  - sts.yaml
+  - svc.yaml
+
+generators:
+  - ksops.yaml

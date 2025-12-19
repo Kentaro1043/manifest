@@ -1,6 +1,0 @@
-resources:
-  - deployment.yaml
-  - volume-data.yaml
-
-generators:
-  - ksops.yaml

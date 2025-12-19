@@ -1,24 +1,21 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: ai
-  labels:
-    app: ai
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: ai
-  strategy:
-    type: Recreate
+  serviceName: ai
+  replicas: 1
   template:
     metadata:
       labels:
         app: ai
     spec:
       initContainers:
-        - name: init-font-files
-          image: busybox:1.37.0@sha256:e3652a00a2fabd16ce889f0aa32c38eec347b997e73bd09e69c962ec7f8732ee
+        - name: init-font-file
+          image: docker.io/library/busybox:1.37.0
           command: [
               "/bin/sh",
               "-c",
@@ -28,36 +25,43 @@ spec:
               wget -O /font/font.ttf https://github.com/coz-m/MPLUS_FONTS/raw/refs/heads/master/fonts/ttf/Mplus1-Regular.ttf",
             ]
           volumeMounts:
-            - name: font-volume
+            - name: font-file
               mountPath: /font
+
       containers:
-        - image: ghcr.io/kentaro1043/ai-arm64:master@sha256:197d1a012e912684afabbe6225d3e09b458e4fd3044d585260b7b606ca1b8cff
-          name: ai
+        - name: ai
+          image: ghcr.io/kentaro1043/ai-arm64:latest
           volumeMounts:
+            - mountPath: /ai/data
+              name: data
             - mountPath: /ai/config.json
               name: config-json
               readOnly: true
               subPath: config.json
             - mountPath: /ai/font.ttf
-              name: font-volume
+              name: font-file
               readOnly: true
               subPath: font.ttf
-            - mountPath: /ai/data
-              name: data-volume
           resources:
-            limits:
-              cpu: "500m"
-              memory: "512Mi"
             requests:
-              cpu: "100m"
-              memory: "128Mi"
-      restartPolicy: Always
+              cpu: 10m
+              memory: 64Mi
+            limits:
+              cpu: 20m
+              memory: 128Mi
+
       volumes:
         - name: config-json
           secret:
             secretName: ai-config-json
-        - name: font-volume
+        - name: font-file
           emptyDir: {}
-        - name: data-volume
-          persistentVolumeClaim:
-            claimName: ai-data-volume
+
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 100Mi

@@ -13,6 +13,7 @@ spec:
         repoURL: https://github.com/Kentaro1043/manifest
         revision: main
         directories:
+          - path: "ai"
           - path: "argo"
           - path: "argocd"
           - path: "cert-manager"
