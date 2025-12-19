@@ -6,4 +6,6 @@ spec:
   selector:
     app: ai
   ClusterIP: None
-  ports: []
+  ports:
+    - port: 8080
+      name: dummy
