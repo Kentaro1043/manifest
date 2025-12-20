@@ -35,6 +35,23 @@ spec:
             requests:
               cpu: "100m"
               memory: "512Mi"
+
+          startupProbe:
+            httpGet:
+              path: /api/server-info
+              port: 3000
+            failureThreshold: 60
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /robots.txt
+              port: 3000
+            periodSeconds: 20
+          readinessProbe:
+            httpGet:
+              path: /api/server-info
+              port: 3000
+            periodSeconds: 15
       volumes:
         - name: misskey-config
           secret:
