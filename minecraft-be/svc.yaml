@@ -5,7 +5,6 @@ metadata:
 spec:
   selector:
     app: minecraft-be
-  ipFamily: IPv4
   type: ClusterIP
   ports:
     - port: 19132
