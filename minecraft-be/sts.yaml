@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: minecraft-be
+  name: minecraft-be
+spec:
+  replicas: 1
+  serviceName: minecraft-be
+  selector:
+    matchLabels:
+      app: minecraft-be
+  template:
+    metadata:
+      labels:
+        app: minecraft-be
+    spec:
+      containers:
+        - name: minecraft-be
+          image: itzg/minecraft-bedrock-server:2025.12.2
+          tty: true
+          stdin: true
+          env:
+            - name: TZ
+              value: Asia/Tokyo
+          envFrom:
+            - configMapRef:
+                name: minecraft-be
+          volumeMounts:
+            - mountPath: /data
+              name: data
+            - mountPath: /data/allowlist.json
+              subPath: allowlist.json
+              name: allowlist
+          ports:
+            - containerPort: 19132
+              protocol: UDP
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "200m"
+              memory: "512Mi"
+          readinessProbe: &probe
+            exec:
+              command:
+                - mc-monitor
+                - status-bedrock
+                - --host
+                # force health check against IPv4 port
+                - 127.0.0.1
+            initialDelaySeconds: 30
+          livenessProbe: *probe
+      volumes:
+        - name: allowlist
+          configMap:
+            name: minecraft-be-allowlist
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi

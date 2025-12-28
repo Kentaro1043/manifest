@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: minecraft-be
+data:
+  EULA: "TRUE"
+  GAMEMODE: "survival" # Options: survival, creative, adventure
+  DIFFICULTY: "normal" # Options: peaceful, easy, normal, hard
+  DEFAULT_PLAYER_PERMISSION_LEVEL: "member" # Options: visitor, member, operator
+  LEVEL_NAME: "world"
+  #LEVEL_SEED: "33480944"
+  SERVER_NAME: "Sakura Minecraft Server"
+  SERVER_PORT: "19132"
+  LEVEL_TYPE: "DEFAULT" # Options: FLAT, LEGACY, DEFAULT
+  ALLOW_CHEATS: "false" # Options: true, false
+  MAX_PLAYERS: "2"
+  PLAYER_IDLE_TIMEOUT: "30"
+  TEXTUREPACK_REQUIRED: "false" # Options: true, false
+  EMIT_SERVER_TELEMETRY: "true" # Options: true, false
+
+  # セキュリティ
+  ONLINE_MODE: "true" # Options: true, false (removes Xbox Live account requirements)
+  WHITE_LIST: "false" # If enabled, need to provide a whitelist.json by your own means.
+
+  # パフォーマンス
+  VIEW_DISTANCE: "10"
+  TICK_DISTANCE: "4"
+  MAX_THREADS: "8"
+
+  # ユーザー
+  OPS: "2535431404470049"
