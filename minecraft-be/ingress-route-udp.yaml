@@ -13,4 +13,3 @@ spec:
     - services:
         - name: minecraft-be
           port: 19132
-          nodePortLB: true
