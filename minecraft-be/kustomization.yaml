@@ -5,6 +5,7 @@ resources:
   - sts.yaml
   - svc.yaml
   - cm.yaml
+  - ingress-route-udp.yaml
 
 configMapGenerator:
   - name: minecraft-be-allowlist
