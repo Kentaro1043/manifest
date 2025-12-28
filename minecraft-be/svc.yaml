@@ -5,7 +5,7 @@ metadata:
 spec:
   selector:
     app: minecraft-be
-  type: ClusterIP
+  type: NodePort
   ports:
     - port: 19132
       protocol: UDP
