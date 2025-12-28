@@ -10,7 +10,6 @@ spec:
   selector:
     app: minecraft-be
   type: ClusterIP
-  externalTrafficPolicy: Local
   ports:
     - port: 19132
       protocol: UDP
