@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: minecraft-be
-          image: itzg/minecraft-bedrock-server:2025.12.2
+          image: ghcr.io/itzg/minecraft-bedrock-server:2025.12.2
           tty: true
           stdin: true
           env:
