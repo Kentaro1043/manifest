@@ -49,7 +49,7 @@ spec:
                 - status-bedrock
                 - --host
                 - 127.0.0.1
-            failureThreshold: 60
+            failureThreshold: 30
             periodSeconds: 10
           readinessProbe:
             exec:
