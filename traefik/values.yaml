@@ -11,13 +11,13 @@ resources:
     cpu: "20m"
     memory: "128Mi"
 
-ports:
-  minecraft-be:
-    port: 19132
-    protocol: UDP
-    exposedPort: 19132
-    expose:
-      default: true
+#ports:
+#  minecraft-be:
+#    port: 19132
+#    protocol: UDP
+#    exposedPort: 19132
+#    expose:
+#      default: true
 
 ingressRoute:
   dashboard:
