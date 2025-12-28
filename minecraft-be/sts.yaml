@@ -42,16 +42,33 @@ spec:
             limits:
               cpu: "200m"
               memory: "512Mi"
-          readinessProbe: &probe
+          startupProbe:
             exec:
               command:
                 - mc-monitor
                 - status-bedrock
                 - --host
-                # force health check against IPv4 port
                 - 127.0.0.1
-            initialDelaySeconds: 120
-          livenessProbe: *probe
+            failureThreshold: 30
+            periodSeconds: 10
+          readinessProbe:
+            exec:
+              command:
+                - mc-monitor
+                - status-bedrock
+                - --host
+                - 127.0.0.1
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            exec:
+              command:
+                - mc-monitor
+                - status-bedrock
+                - --host
+                - 127.0.0.1
+            initialDelaySeconds: 60
+            periodSeconds: 10
       volumes:
         - name: allowlist
           configMap:
