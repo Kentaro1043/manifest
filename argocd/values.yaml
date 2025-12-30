@@ -139,7 +139,7 @@ repoServer:
   initContainers:
     # ksops installation
     - name: install-ksops
-      image: docker.io/viaductoss/ksops:v4.3.3
+      image: docker.io/viaductoss/ksops:v4.4.0
       command: ["/bin/sh", "-c"]
       args:
         - echo "Installing KSOPS...";
