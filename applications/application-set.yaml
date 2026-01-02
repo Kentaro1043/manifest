@@ -20,7 +20,6 @@ spec:
           - path: "external-dns"
           - path: "grafana-k8s-monitoring-app"
           - path: "headscale"
-          - path: "minecraft-be"
           - path: "misskey"
           - path: "n8n"
           - path: "nfs"
