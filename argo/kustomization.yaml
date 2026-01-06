@@ -7,7 +7,7 @@ configurations:
 helmCharts:
   - name: argo-workflows
     repo: https://argoproj.github.io/argo-helm
-    version: 0.46.2
+    version: 0.46.3
     releaseName: argo-workflows
     namespace: argo
     includeCRDs: true
