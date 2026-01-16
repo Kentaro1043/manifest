@@ -19,7 +19,6 @@ spec:
           - path: "cert-manager"
           - path: "external-dns"
           - path: "grafana-k8s-monitoring-app"
-          - path: "headscale"
           - path: "misskey"
           - path: "n8n"
           - path: "nfs"
