@@ -14,7 +14,6 @@ spec:
         revision: main
         directories:
           - path: "ai"
-          - path: "argo"
           - path: "argocd"
           - path: "cert-manager"
           - path: "external-dns"
