@@ -6,6 +6,7 @@ resources:
   - svc.yaml
   - pvc.yaml
   - ingress.yaml
+  - middleware.yaml
 
 generators:
   - ksops.yaml

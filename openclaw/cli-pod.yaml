@@ -1,0 +1,34 @@
+# `kubectl exec -it openclaw-cli -n openclaw -- node dist/index.js onboard`
+apiVersion: v1
+kind: Pod
+metadata:
+  name: openclaw-cli
+  namespace: openclaw
+  labels:
+    app: openclaw-cli
+spec:
+  containers:
+    - name: cli
+      image: docker.io/alpine/openclaw:2026.2.9
+      command: ["/bin/sh", "-c", "sleep infinity"]
+      stdin: true
+      tty: true
+      env:
+        - name: HOME
+          value: "/home/node"
+        - name: TERM
+          value: "xterm-256color"
+        - name: BROWSER
+          value: "echo"
+      volumeMounts:
+        - name: config
+          mountPath: /home/node/.openclaw
+        - name: workspace
+          mountPath: /home/node/.openclaw/workspace
+  volumes:
+    - name: config
+      persistentVolumeClaim:
+        claimName: config
+    - name: workspace
+      persistentVolumeClaim:
+        claimName: workspace
