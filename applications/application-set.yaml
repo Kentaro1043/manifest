@@ -21,6 +21,7 @@ spec:
           - path: "misskey"
           - path: "n8n"
           - path: "nfs"
+          - path: "openclaw"
           - path: "origin-ca-issuer"
           - path: "pds"
           - path: "traefik"
