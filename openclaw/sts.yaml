@@ -30,6 +30,9 @@ spec:
               value: /home/node
             - name: TERM
               value: xterm-256color
+          envFrom:
+            - secretRef:
+                name: gateway-token
           ports:
             - name: http
               containerPort: 18789
