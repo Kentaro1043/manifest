@@ -7,5 +7,4 @@ metadata:
       exec:
         path: ksops
 files:
-  - ./secrets/gateway-token.enc.yaml
   - ./secrets/basic-auth.enc.yaml
