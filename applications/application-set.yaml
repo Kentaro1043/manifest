@@ -17,7 +17,7 @@ spec:
           - path: "argocd"
           - path: "cert-manager"
           - path: "external-dns"
-          # - path: "grafana-k8s-monitoring-app"
+          - path: "grafana-k8s-monitoring-app"
           - path: "misskey"
           - path: "n8n"
           - path: "nfs"
