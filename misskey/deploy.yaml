@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: misskey
-          image: docker.io/misskey/misskey:2026.5.3
+          image: docker.io/misskey/misskey:2026.5.4
           volumeMounts:
             - name: misskey-config
               mountPath: /misskey/.config
