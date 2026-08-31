@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: pds
-          image: ghcr.io/bluesky-social/pds:0.4.5009
+          image: ghcr.io/bluesky-social/pds:0.4.5027
           ports:
             - containerPort: 2583
               name: http
